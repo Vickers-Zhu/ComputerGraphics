@@ -17,7 +17,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton.clicked.connect(self.on_btn_execute_clicked)
         self.ui.pushButton_3.clicked.connect(self.show_input_widget)
         self.input = None
-        self.core = 0.0
+        self.core = np.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]))
         self.offset = 0.0
         self.divisor = 1.0
 
@@ -80,6 +80,8 @@ class mywindow(QtWidgets.QMainWindow):
             self.Customized("edge_1")
         if self.ui.radioButton.isChecked():
             self.Customized("emboss_1")
+        if self.ui.radioButton_4.isChecked():
+            self.Customized("meanremoval")
 
     def TestInput(self):
         if bool(self.input):
@@ -188,7 +190,8 @@ class mywindow(QtWidgets.QMainWindow):
         sharpen = np.array(([0, -1, 0], [-1, 5, -1], [0, -1, 0]))
         edge_1 = np.array(([0, -1, 0], [0, 1, 0], [0, 0, 0]))
         emboss_1 = np.array(([-1, -1, -1], [0, 1, 0], [1, 1, 1]))
-        if not self.core == 0.0:
+        meanremoval = np.array(([-1, -1, -1], [-1, 9, -1], [-1, -1, -1]))
+        if not(self.core == np.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]))):
             args = "self.core"
 
         img = self.img.copy()
