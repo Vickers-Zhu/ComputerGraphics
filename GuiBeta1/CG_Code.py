@@ -164,15 +164,15 @@ class mywindow(QtWidgets.QMainWindow):
             c97 = float(self.input.ui.lineEdit_79.text())
             c98 = float(self.input.ui.lineEdit_80.text())
             c99 = float(self.input.ui.lineEdit_81.text())
-        self.core = np.array(([c11,c12,c13,c14,c15,c16,c17,c18,c19],
-                              [c21,c22,c23,c24,c25,c26,c27,c28,c29],
-                              [c31,c32,c33,c34,c35,c36,c37,c38,c39],
-                              [c41,c42,c43,c44,c45,c46,c47,c48,c49],
-                              [c51,c52,c53,c54,c55,c56,c57,c58,c59],
-                              [c61,c62,c63,c64,c65,c66,c67,c68,c69],
-                              [c71,c72,c73,c74,c75,c76,c77,c78,c79],
-                              [c81,c82,c83,c84,c85,c86,c87,c88,c89],
-                              [c91,c92,c93,c94,c95,c96,c97,c98,c99]))
+            self.core = np.array(([c11,c12,c13,c14,c15,c16,c17,c18,c19],
+                                  [c21,c22,c23,c24,c25,c26,c27,c28,c29],
+                                  [c31,c32,c33,c34,c35,c36,c37,c38,c39],
+                                  [c41,c42,c43,c44,c45,c46,c47,c48,c49],
+                                  [c51,c52,c53,c54,c55,c56,c57,c58,c59],
+                                  [c61,c62,c63,c64,c65,c66,c67,c68,c69],
+                                  [c71,c72,c73,c74,c75,c76,c77,c78,c79],
+                                  [c81,c82,c83,c84,c85,c86,c87,c88,c89],
+                                  [c91,c92,c93,c94,c95,c96,c97,c98,c99]))
         if bool(self.ui.lineEdit.text()):
             self.offset = float(self.ui.lineEdit.text())
         if bool(self.ui.lineEdit_2.text()):
@@ -188,7 +188,7 @@ class mywindow(QtWidgets.QMainWindow):
         sharpen = np.array(([0, -1, 0], [-1, 5, -1], [0, -1, 0]))
         edge_1 = np.array(([0, -1, 0], [0, 1, 0], [0, 0, 0]))
         emboss_1 = np.array(([-1, -1, -1], [0, 1, 0], [1, 1, 1]))
-        if self.core is not 0.0:
+        if not self.core == 0.0:
             args = "self.core"
 
         img = self.img.copy()
