@@ -17,9 +17,10 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton.clicked.connect(self.on_btn_execute_clicked)
         self.ui.pushButton_3.clicked.connect(self.show_input_widget)
         self.input = None
-        self.core = np.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]))
+        self.core = None
         self.offset = 0.0
         self.divisor = 1.0
+        self.hasinput = False
 
     def show_input_widget(self):
         self.input = CG_Input.myinput()
@@ -93,6 +94,7 @@ class mywindow(QtWidgets.QMainWindow):
 
     def TestInput(self):
         if bool(self.input):
+            self.hasinput = True
             c11 = float(self.input.ui.lineEdit.text())
             c12 = float(self.input.ui.lineEdit_2.text())
             c13 = float(self.input.ui.lineEdit_3.text())
@@ -199,7 +201,7 @@ class mywindow(QtWidgets.QMainWindow):
         edge_1 = np.array(([0, -1, 0], [0, 1, 0], [0, 0, 0]))
         emboss_1 = np.array(([-1, -1, -1], [0, 1, 0], [1, 1, 1]))
         meanremoval = np.array(([-1, -1, -1], [-1, 9, -1], [-1, -1, -1]))
-        if not(self.core == np.array(([0, 0, 0], [0, 0, 0], [0, 0, 0]))):
+        if self.hasinput:
             args = "self.core"
 
         img = self.img.copy()
@@ -231,8 +233,8 @@ class mywindow(QtWidgets.QMainWindow):
         for w in range(0, img.shape[1]):
             for h in range(0, img.shape[0]):
                 img[h, w, 0] = self.IsRange(int((img[h, w, 0] - 127) * arg + 127))
-                img[h, w, 1] = self.IsRange(int((img[h, w, 0] - 127) * arg + 127))
-                img[h, w, 2] = self.IsRange(int((img[h, w, 0] - 127) * arg + 127))
+                img[h, w, 1] = self.IsRange(int((img[h, w, 1] - 127) * arg + 127))
+                img[h, w, 2] = self.IsRange(int((img[h, w, 2] - 127) * arg + 127))
         cv2.imwrite("AfterProcessed.jpg", img)
 
     def Expand(self, img, arg):
@@ -262,7 +264,7 @@ class mywindow(QtWidgets.QMainWindow):
                 median = np.array((img[i-1, j-1], img[i-1, j], img[i-1, j+1],
                                    img[i, j-1], img[i, j], img[i, j+1],
                                    img[i+1, j-1], img[i+1, j], img[i+1, j+1]))
-                median = np.median(median)
+                median = np.median(median) + self.offset
                 new_img[i, j] = median
         new_img = np.rint(new_img).astype('uint8')
         return new_img
