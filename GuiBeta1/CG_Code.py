@@ -82,6 +82,14 @@ class mywindow(QtWidgets.QMainWindow):
             self.Customized("emboss_1")
         if self.ui.radioButton_4.isChecked():
             self.Customized("meanremoval")
+        if self.ui.radioButton_10.isChecked():
+            img = self.img.copy()
+            B = self.Median(img[:, :, 0], 10)
+            G = self.Median(img[:, :, 1], 10)
+            R = self.Median(img[:, :, 2], 10)
+            img = np.stack((R, G, B), axis=2)
+            Image.fromarray(img)
+            cv2.imwrite("AfterProcessed.jpg", img)
 
     def TestInput(self):
         if bool(self.input):
@@ -242,6 +250,20 @@ class mywindow(QtWidgets.QMainWindow):
             for i in range(0, height):
                 new_img[i, j] = self.IsRange(np.sum(img[i+bd-hor: i+bd+hor+1,
                                                     j+bd-ver: j+bd+ver+1] * weight) / self.divisor + self.offset)
+        new_img = np.rint(new_img).astype('uint8')
+        return new_img
+
+    def Median(self, img, bd):
+        height, width = img.shape
+        img = self.Expand(img, bd)
+        new_img = np.zeros((height, width), dtype=float)
+        for j in range(0, width):
+            for i in range(0, height):
+                median = np.array((img[i-1, j-1], img[i-1, j], img[i-1, j+1],
+                                   img[i, j-1], img[i, j], img[i, j+1],
+                                   img[i+1, j-1], img[i+1, j], img[i+1, j+1]))
+                median = np.median(median)
+                new_img[i, j] = median
         new_img = np.rint(new_img).astype('uint8')
         return new_img
 
