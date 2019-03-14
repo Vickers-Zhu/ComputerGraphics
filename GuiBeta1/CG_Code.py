@@ -5,6 +5,7 @@ import CG_Input
 from PIL import Image
 import cv2
 import os
+import random
 import numpy as np
 
 
@@ -21,6 +22,8 @@ class mywindow(QtWidgets.QMainWindow):
         self.offset = 0.0
         self.divisor = 1.0
         self.hasinput = False
+        self.th = 0
+        self.gl = 2
 
     def show_input_widget(self):
         self.input = CG_Input.myinput()
@@ -91,6 +94,11 @@ class mywindow(QtWidgets.QMainWindow):
             img = np.stack((R, G, B), axis=2)
             Image.fromarray(img)
             cv2.imwrite("AfterProcessed.jpg", img)
+        if self.ui.radioButton_11.isChecked():
+            img = self.img.copy()
+            img = self.Threshold(img)
+            cv2.imwrite("AfterProcessed.jpg", img)
+
 
     def TestInput(self):
         if bool(self.input):
@@ -189,6 +197,10 @@ class mywindow(QtWidgets.QMainWindow):
             self.offset = float(self.ui.lineEdit.text())
         if bool(self.ui.lineEdit_2.text()):
             self.divisor = float(self.ui.lineEdit_2.text())
+        if bool(self.ui.lineEdit_4.text()):
+            self.th = float(self.ui.lineEdit_4.text())
+        if bool(self.ui.lineEdit_3.text()):
+            self.gl = int(self.ui.lineEdit_3.text())
 
     def IsRange(self, arg):
         return max(0, min(255, arg))
@@ -268,6 +280,46 @@ class mywindow(QtWidgets.QMainWindow):
                 new_img[i, j] = median
         new_img = np.rint(new_img).astype('uint8')
         return new_img
+
+    def Grey(self, img):
+        for w in range(0, img.shape[1]):
+            for h in range(0, img.shape[0]):
+                img[h, w, 0] = int(0.3 * img[h, w, 2] + 0.6 * img[h, w, 1] + 0.1 * img[h, w, 0])
+                img[h, w, 1] = img[h, w, 0]
+                img[h, w, 2] = img[h, w, 0]
+        return img
+
+    def Threshold(self, img):
+        img = self.Grey(img)
+        K = []
+        for i in range(0, self.gl):
+            K.append(self.IsRange(int(255 * i / (self.gl - 1))))
+        for j in range(0, img.shape[1]):
+            for i in range(0, img.shape[0]):
+                # index = int(img[i, j, 0] * (self.gl - 1) / 255)
+                index = random.randint(0, len(K)-1)
+                if index > len(K) - 2:
+                    index = index - 1
+                if self.gl == 2:
+                    if img[i, j, 0] < random.random() * 255:
+                        img[i, j, 0] = 0
+                        img[i, j, 1] = img[i, j, 0]
+                        img[i, j, 2] = img[i, j, 0]
+                    else:
+                        img[i, j, 0] = 255
+                        img[i, j, 1] = img[i, j, 0]
+                        img[i, j, 2] = img[i, j, 0]
+
+                # if img[i, j, 0] < (K[index] + (K[index + 1] - K[index]) * self.th):
+                if img[i, j, 0] < (K[index] + (K[index + 1] - K[index]) * self.th):
+                    img[i, j, 0] = K[index]
+                    img[i, j, 1] = img[i, j, 0]
+                    img[i, j, 2] = img[i, j, 0]
+                else:
+                    img[i, j, 0] = K[index + 1]
+                    img[i, j, 1] = img[i, j, 0]
+                    img[i, j, 2] = img[i, j, 0]
+        return img
 
 
 if __name__ == "__main__":
