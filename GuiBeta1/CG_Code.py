@@ -296,8 +296,8 @@ class mywindow(QtWidgets.QMainWindow):
             K.append(self.IsRange(int(255 * i / (self.gl - 1))))
         for j in range(0, img.shape[1]):
             for i in range(0, img.shape[0]):
-                # index = int(img[i, j, 0] * (self.gl - 1) / 255)
-                index = random.randint(0, len(K)-1)
+                index = int(img[i, j, 0] * (self.gl - 1) / 255)
+                # index = random.randint(0, len(K)-1)
                 if index > len(K) - 2:
                     index = index - 1
                 if self.gl == 2:
@@ -311,7 +311,7 @@ class mywindow(QtWidgets.QMainWindow):
                         img[i, j, 2] = img[i, j, 0]
 
                 # if img[i, j, 0] < (K[index] + (K[index + 1] - K[index]) * self.th):
-                if img[i, j, 0] < (K[index] + (K[index + 1] - K[index]) * self.th):
+                if img[i, j, 0] < (K[index] + random.random() * (K[index + 1] - K[index])):
                     img[i, j, 0] = K[index]
                     img[i, j, 1] = img[i, j, 0]
                     img[i, j, 2] = img[i, j, 0]
