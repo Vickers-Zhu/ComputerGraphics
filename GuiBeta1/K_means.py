@@ -13,11 +13,9 @@ class kmeans:
         self.counter = np.zeros(k, dtype=np.int)
         self.new_centroids = np.zeros((k, 3), dtype=np.int)
 
-
         for h in range(0, self.centroids.shape[0]):
             for w in range(0, self.centroids.shape[1]):
                 self.centroids[h, w] = random.randint(0, 255)
-        # print(self.centroids[1, :])
 
     def dist_Eclud(self, vec1, vec2):
         return sqrt(pow((vec1[0] - vec2[0]), 2) + pow((vec1[1] - vec2[1]), 2) + pow((vec1[2] - vec2[2]), 2))
@@ -33,8 +31,8 @@ class kmeans:
         return index
 
     def whole_img(self):
-        for h in range(0, self.img.shape[0]):
-            for w in range(0, self.img.shape[1]):
+        for w in range(0, self.img.shape[1]):
+            for h in range(0, self.img.shape[0]):
                 i = self.min_dist_each(self.img[h, w, :])
                 self.cluster[i, self.counter[i], 0] = h
                 self.cluster[i, self.counter[i], 1] = w
@@ -66,6 +64,7 @@ class kmeans:
         return over
 
     def process(self, k):
+        i = 0
         self.init(k)
         while True:
             self.whole_img()
@@ -76,9 +75,5 @@ class kmeans:
             self.new_centroids = np.zeros((k, 3), dtype=np.int)
             self.counter = np.zeros(k, dtype=np.int)
             self.cluster = np.zeros((k, self.img.shape[0] * self.img.shape[1], 2), dtype=np.int)
-        # self.test()
-
-
-
-
-
+            i = i + 1
+            print("Training after " + str(i))
