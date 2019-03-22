@@ -7,6 +7,7 @@ import cv2
 import os
 import random
 import numpy as np
+from K_means import kmeans
 
 
 class mywindow(QtWidgets.QMainWindow):
@@ -24,6 +25,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.hasinput = False
         self.th = 0
         self.gl = 2
+        self.K = 4
 
     def show_input_widget(self):
         self.input = CG_Input.myinput()
@@ -98,6 +100,13 @@ class mywindow(QtWidgets.QMainWindow):
             img = self.img.copy()
             img = self.Threshold(img)
             cv2.imwrite("AfterProcessed.jpg", img)
+        if self.ui.radioButton_12.isChecked():
+            k = kmeans(self.img)
+            k.process(self.K)
+            self.km(k.new_centroids, k.cluster, k.counter)
+
+
+
 
 
     def TestInput(self):
@@ -201,6 +210,9 @@ class mywindow(QtWidgets.QMainWindow):
             self.th = float(self.ui.lineEdit_4.text())
         if bool(self.ui.lineEdit_3.text()):
             self.gl = int(self.ui.lineEdit_3.text())
+        if bool(self.ui.lineEdit_5.text()):
+            self.K = int(self.ui.lineEdit_5.text())
+
 
     def IsRange(self, arg):
         return max(0, min(255, arg))
@@ -320,6 +332,20 @@ class mywindow(QtWidgets.QMainWindow):
                     img[i, j, 1] = img[i, j, 0]
                     img[i, j, 2] = img[i, j, 0]
         return img
+
+    def km(self, centroids, cluster, counter):
+        img = self.img.copy()
+        for k in range(0, len(counter)):
+            for i in range(0, counter[k]):
+                if counter[k] == 0:
+                    continue
+                img[cluster[k, i, 0], cluster[k, i, 1], 0] = centroids[k, 0]
+                img[cluster[k, i, 0], cluster[k, i, 1], 1] = centroids[k, 1]
+                img[cluster[k, i, 0], cluster[k, i, 1], 2] = centroids[k, 2]
+        cv2.imwrite("AfterProcessed.jpg", img)
+
+
+
 
 
 if __name__ == "__main__":
