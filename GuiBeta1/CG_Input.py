@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 from input import Ui_Modifier
-from CG_Code import mywindow
 
 
 class myinput(QtWidgets.QWidget):

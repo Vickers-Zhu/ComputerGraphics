@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 import random
 from math import *
@@ -31,13 +30,12 @@ class kmeans:
         return index
 
     def whole_img(self):
-        for w in range(0, self.img.shape[1]):
-            for h in range(0, self.img.shape[0]):
+        for h in range(0, self.img.shape[0]):
+            for w in range(0, self.img.shape[1]):
                 i = self.min_dist_each(self.img[h, w, :])
                 self.cluster[i, self.counter[i], 0] = h
                 self.cluster[i, self.counter[i], 1] = w
                 self.counter[i] = self.counter[i] + 1
-        # print(self.counter)
 
     def avr(self):
         for k in range(0, len(self.counter)):

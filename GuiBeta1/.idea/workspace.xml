@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/CG_Code.py" line="200" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/CG_Code.py" line="253" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b55a7b2a-5943-4e42-9f7b-7bed037a2fca" name="Default Changelist" comment="" />
@@ -16,8 +16,8 @@
     <SUITE FILE_PATH="coverage/GuiBeta1$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1550785641130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/GuiBeta1$Beta1.coverage" NAME="Beta1 Coverage Results" MODIFIED="1550792006809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GuiBeta1$main.coverage" NAME="main Coverage Results" MODIFIED="1550785684778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/GuiBeta1$Exmp.coverage" NAME="Exmp Coverage Results" MODIFIED="1552603903221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/GuiBeta1$CG_Code.coverage" NAME="CG_Code Coverage Results" MODIFIED="1552603941253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GuiBeta1$Exmp.coverage" NAME="Exmp Coverage Results" MODIFIED="1553221441785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GuiBeta1$CG_Code.coverage" NAME="CG_Code Coverage Results" MODIFIED="1553526470129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -38,17 +38,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1926">
-              <caret line="107" column="60" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="60" />
+            <state relative-caret-position="1698">
+              <caret line="104" column="60" selection-start-line="104" selection-start-column="60" selection-end-line="104" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CG_Input.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="87" column="28" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
+            <state relative-caret-position="180">
+              <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -56,13 +56,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CG_Code.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="297" column="44" lean-forward="true" selection-start-line="297" selection-start-column="44" selection-end-line="297" selection-end-column="44" />
+            <state relative-caret-position="1813">
+              <caret line="343" column="76" lean-forward="true" selection-start-line="343" selection-start-column="76" selection-end-line="343" selection-end-column="76" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/K_means.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="692">
+              <caret line="71" column="47" lean-forward="true" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/Exmp.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="15" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -100,8 +112,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>filename</find>
+      <find>self.th</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -117,23 +130,26 @@
         <option value="$PROJECT_DIR$/venv/CG_Code.py" />
         <option value="$PROJECT_DIR$/CG.py" />
         <option value="$PROJECT_DIR$/venv/CG_Input.py" />
-        <option value="$PROJECT_DIR$/CG_Input.py" />
+        <option value="$PROJECT_DIR$/venv/K-means.py" />
+        <option value="$PROJECT_DIR$/K-means.py" />
         <option value="$PROJECT_DIR$/Exmp.py" />
+        <option value="$PROJECT_DIR$/CG_Input.py" />
+        <option value="$PROJECT_DIR$/K_means.py" />
         <option value="$PROJECT_DIR$/CG_Code.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="76" />
-    <option name="y" value="76" />
-    <option name="width" value="1604" />
-    <option name="height" value="880" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="934" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -141,11 +157,15 @@
               <item name="GuiBeta1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
+            <path>
+              <item name="GuiBeta1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="venv" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -173,28 +193,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.CG_Code">
-    <configuration name="Beta1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="GuiBeta1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Beta1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="CG" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GuiBeta1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -261,6 +259,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="K-means" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GuiBeta1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/K-means.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="K_means" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GuiBeta1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/K_means.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="GuiBeta1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -305,43 +347,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="GuiBeta1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.Beta1" />
       <item itemvalue="Python.CG" />
       <item itemvalue="Python.Exmp" />
       <item itemvalue="Python.CG_Code" />
+      <item itemvalue="Python.K-means" />
+      <item itemvalue="Python.K_means" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.CG_Code" />
+        <item itemvalue="Python.K_means" />
         <item itemvalue="Python.Exmp" />
+        <item itemvalue="Python.K-means" />
         <item itemvalue="Python.CG" />
-        <item itemvalue="Python.Beta1" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -389,21 +409,28 @@
       <workItem from="1552573733160" duration="1015000" />
       <workItem from="1552579023698" duration="140000" />
       <workItem from="1552601148814" duration="2703000" />
+      <workItem from="1552847977794" duration="61000" />
+      <workItem from="1552848061708" duration="14000" />
+      <workItem from="1553171680277" duration="3106000" />
+      <workItem from="1553176703197" duration="253000" />
+      <workItem from="1553208157006" duration="19193000" />
+      <workItem from="1553424529723" duration="20000" />
+      <workItem from="1553523562673" duration="2616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78525000" />
+    <option name="totallyTimeSpent" value="103788000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="933" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="934" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23809524" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25946277" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936978" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4920635" weight="0.38287753" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4884005" weight="0.37885985" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -411,9 +438,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50793654" side_tool="true" visible="true" weight="0.38287753" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51159954" side_tool="true" visible="true" weight="0.37885985" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32857144" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32857144" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.497558" weight="0.32779098" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -440,13 +467,14 @@
     <entry file="file://$PROJECT_DIR$/img_cv2.jpg" />
     <entry file="file://$PROJECT_DIR$/905251.jpg" />
     <entry file="file://$PROJECT_DIR$/AfterProcessed.jpg" />
-    <entry file="file://$PROJECT_DIR$/CG.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1926">
-          <caret line="107" column="60" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="60" />
+        <state relative-caret-position="180">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/K-means.py" />
     <entry file="file://$PROJECT_DIR$/input.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -457,27 +485,44 @@
     <entry file="file://$PROJECT_DIR$/Exmp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="15" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CG_Input.py">
+    <entry file="file://$PROJECT_DIR$/CG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="87" column="28" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
+        <state relative-caret-position="1698">
+          <caret line="104" column="60" selection-start-line="104" selection-start-column="60" selection-end-line="104" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/K_means.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="71" column="47" lean-forward="true" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CG_Code.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="297" column="44" lean-forward="true" selection-start-line="297" selection-start-column="44" selection-end-line="297" selection-end-column="44" />
+        <state relative-caret-position="1813">
+          <caret line="343" column="76" lean-forward="true" selection-start-line="343" selection-start-column="76" selection-end-line="343" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CG_Input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
