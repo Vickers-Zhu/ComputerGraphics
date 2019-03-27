@@ -339,9 +339,9 @@ class mywindow(QtWidgets.QMainWindow):
             for i in range(0, counter[k]):
                 if counter[k] == 0:
                     continue
-                img[cluster[k, i, 0], cluster[k, i, 1], 0] = centroids[k, 0]
+                img[cluster[k, i, 0], cluster[k, i, 1], 0] = centroids[k, 2]
                 img[cluster[k, i, 0], cluster[k, i, 1], 1] = centroids[k, 1]
-                img[cluster[k, i, 0], cluster[k, i, 1], 2] = centroids[k, 2]
+                img[cluster[k, i, 0], cluster[k, i, 1], 2] = centroids[k, 0]
         cv2.imwrite("AfterProcessed.jpg", img)
 
 
