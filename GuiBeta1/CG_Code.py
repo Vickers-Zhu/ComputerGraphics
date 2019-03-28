@@ -38,7 +38,7 @@ class mywindow(QtWidgets.QMainWindow):
             self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)  # Change channel
             x = self.img.shape[1]  # Get the size of the image
             y = self.img.shape[0]
-            zoom = 0.5  # zoom of the image
+            zoom = 1  # zoom of the image
             frame = QtGui.QImage(self.img, x, y, QtGui.QImage.Format_RGB888)
             pix = QtGui.QPixmap.fromImage(frame)
             item = QtWidgets.QGraphicsPixmapItem(pix)  # make the pix map
@@ -60,7 +60,7 @@ class mywindow(QtWidgets.QMainWindow):
             image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)
             x = image2.shape[1]
             y = image2.shape[0]
-            zoom = 0.5  # zoom of the image
+            zoom = 1  # zoom of the image
             frame = QtGui.QImage(image2, x, y, QtGui.QImage.Format_RGB888)
             pix = QtGui.QPixmap.fromImage(frame)
             item = QtWidgets.QGraphicsPixmapItem(pix)
@@ -103,11 +103,7 @@ class mywindow(QtWidgets.QMainWindow):
         if self.ui.radioButton_12.isChecked():
             k = kmeans(self.img)
             k.process(self.K)
-            self.km(k.new_centroids, k.cluster, k.counter)
-
-
-
-
+            cv2.imwrite("AfterProcessed.jpg", k.img)
 
     def TestInput(self):
         if bool(self.input):
@@ -333,16 +329,16 @@ class mywindow(QtWidgets.QMainWindow):
                     img[i, j, 2] = img[i, j, 0]
         return img
 
-    def km(self, centroids, cluster, counter):
-        img = self.img.copy()
-        for k in range(0, len(counter)):
-            for i in range(0, counter[k]):
-                if counter[k] == 0:
-                    continue
-                img[cluster[k, i, 0], cluster[k, i, 1], 0] = centroids[k, 2]
-                img[cluster[k, i, 0], cluster[k, i, 1], 1] = centroids[k, 1]
-                img[cluster[k, i, 0], cluster[k, i, 1], 2] = centroids[k, 0]
-        cv2.imwrite("AfterProcessed.jpg", img)
+    # def km(self, centroids, cluster, counter):
+    #     img = self.img.copy()
+    #     for k in range(0, len(counter)):
+    #         for i in range(0, counter[k]):
+    #             if counter[k] == 0:
+    #                 continue
+    #             img[cluster[k, i, 0], cluster[k, i, 1], 0] = centroids[k, 2]
+    #             img[cluster[k, i, 0], cluster[k, i, 1], 1] = centroids[k, 1]
+    #             img[cluster[k, i, 0], cluster[k, i, 1], 2] = centroids[k, 0]
+    #     cv2.imwrite("AfterProcessed.jpg", img)
 
 
 

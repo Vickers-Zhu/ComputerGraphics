@@ -7,10 +7,10 @@ class kmeans:
         self.img = img
 
     def init(self, k):
-        self.cluster = np.zeros((k, self.img.shape[0] * self.img.shape[1], 2), dtype=np.int)
+        # self.cluster = np.zeros((k, self.img.shape[0] * self.img.shape[1], 2), dtype=np.int)
         self.centroids = np.zeros((k, 3), dtype=np.int)
-        self.counter = np.zeros(k, dtype=np.int)
         self.new_centroids = np.zeros((k, 3), dtype=np.int)
+        self.counter = np.zeros(k, dtype=np.int)
 
         for h in range(0, self.centroids.shape[0]):
             for w in range(0, self.centroids.shape[1]):
@@ -29,22 +29,22 @@ class kmeans:
                 index = i
         return index
 
+    # def whole_img(self):
+    #     for h in range(0, self.img.shape[0]):
+    #         for w in range(0, self.img.shape[1]):
+    #             i = self.min_dist_each(self.img[h, w, :])
+    #             self.cluster[i, self.counter[i], 0] = h
+    #             self.cluster[i, self.counter[i], 1] = w
+    #             self.counter[i] = self.counter[i] + 1
+
     def whole_img(self):
         for h in range(0, self.img.shape[0]):
             for w in range(0, self.img.shape[1]):
                 i = self.min_dist_each(self.img[h, w, :])
-                self.cluster[i, self.counter[i], 0] = h
-                self.cluster[i, self.counter[i], 1] = w
+                self.new_centroids[i, 0] += self.img[h, w, 0]
+                self.new_centroids[i, 1] += self.img[h, w, 1]
+                self.new_centroids[i, 2] += self.img[h, w, 2]
                 self.counter[i] = self.counter[i] + 1
-
-    def avr(self):
-        for k in range(0, len(self.counter)):
-            for i in range(0, self.counter[k]):
-                if self.counter[k] == 0:
-                    continue
-                self.new_centroids[k, 0] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 0]
-                self.new_centroids[k, 1] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 1]
-                self.new_centroids[k, 2] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 2]
 
         for k in range(0, len(self.counter)):
             if self.counter[k] == 0:
@@ -52,6 +52,30 @@ class kmeans:
             self.new_centroids[k, 0] = int(self.new_centroids[k, 0] / self.counter[k])
             self.new_centroids[k, 1] = int(self.new_centroids[k, 1] / self.counter[k])
             self.new_centroids[k, 2] = int(self.new_centroids[k, 2] / self.counter[k])
+
+    def resign_img(self):
+        for h in range(0, self.img.shape[0]):
+            for w in range(0, self.img.shape[1]):
+                i = self.min_dist_each(self.img[h, w, :])
+                self.img[h, w, 0] = self.centroids[i, 2]
+                self.img[h, w, 1] = self.centroids[i, 1]
+                self.img[h, w, 2] = self.centroids[i, 0]
+
+    # def avr(self):
+    #     for k in range(0, len(self.counter)):
+    #         for i in range(0, self.counter[k]):
+    #             if self.counter[k] == 0:
+    #                 continue
+    #             self.new_centroids[k, 0] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 0]
+    #             self.new_centroids[k, 1] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 1]
+    #             self.new_centroids[k, 2] += self.img[self.cluster[k, i, 0], self.cluster[k, i, 1], 2]
+    #
+    #     for k in range(0, len(self.counter)):
+    #         if self.counter[k] == 0:
+    #             continue
+    #         self.new_centroids[k, 0] = int(self.new_centroids[k, 0] / self.counter[k])
+    #         self.new_centroids[k, 1] = int(self.new_centroids[k, 1] / self.counter[k])
+    #         self.new_centroids[k, 2] = int(self.new_centroids[k, 2] / self.counter[k])
 
     def is_over(self):
         over = True
@@ -66,12 +90,14 @@ class kmeans:
         self.init(k)
         while True:
             self.whole_img()
-            self.avr()
+            # self.avr()
             if self.is_over():
+                self.resign_img()
                 break
             self.centroids = self.new_centroids
             self.new_centroids = np.zeros((k, 3), dtype=np.int)
             self.counter = np.zeros(k, dtype=np.int)
-            self.cluster = np.zeros((k, self.img.shape[0] * self.img.shape[1], 2), dtype=np.int)
             i = i + 1
             print("Training after " + str(i))
+            # self.cluster = np.zeros((k, self.img.shape[0] * self.img.shape[1], 2), dtype=np.int)
+
