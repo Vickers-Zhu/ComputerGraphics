@@ -45,6 +45,11 @@ document.addEventListener('keydown', (event) => {
             return;
         Original(10);
     }
+    else if(keyName === 's'){
+        if(double.length !== 2)
+            return;
+        ThickAntialiasedLine(1);
+    }
 }, false);
 
 document.addEventListener('keydown', (event) => {
