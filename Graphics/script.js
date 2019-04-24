@@ -40,6 +40,11 @@ document.addEventListener('keydown', (event) => {
             return;
         ThickAntialiasedLine(10);
     }
+    else if(keyName === 't'){
+        if(double.length !== 2)
+            return;
+        ThickAntialiasedLine(1);
+    }
     else if(keyName === 'd'){
         if(double.length !== 2)
             return;
