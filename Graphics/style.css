@@ -3,14 +3,24 @@ body{
     /*width: 100%;*/
     /*height: 100%;*/
 }
-
-#viewPort{
+.viewPort{
     width: 100%;
 }
+
 #canvas{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: lightgray;
+}
+#canvas2{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightgray;
+}
+#thickness{
+    margin: 50px;
 }

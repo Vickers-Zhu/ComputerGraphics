@@ -1,7 +1,14 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
+var canvas2 = document.getElementById("canvas2");
+var ctx2 = canvas2.getContext('2d');
+// var thickness = document.getElementById("thickness").value.toString();
 var cL = parseInt(canvas.getBoundingClientRect().left.toString()),
     cT = parseInt(canvas.getBoundingClientRect().top.toString());
+
+var cL1 = parseInt(canvas2.getBoundingClientRect().left.toString()),
+    cT1 = parseInt(canvas2.getBoundingClientRect().top.toString());
+
 var double = [];
 var central;
 
@@ -11,7 +18,9 @@ window.onload = function(event){
 
 debugDraw = function(){
     ctx.fillStyle = "rgb(255,255,255)";
+    ctx2.fillStyle = "rgb(255,255,255)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
 };
 
 canvas.addEventListener('click', function (event) {
@@ -21,7 +30,18 @@ canvas.addEventListener('click', function (event) {
 
     pushDouble(point);
     SymmetricLine(1);
+
 }, false);
+// canvas2.addEventListener('click', function (event) {
+//     var x = event.pageX - cL1;
+//     var y = event.pageY - cT1;
+//     let point = {x: x, y: y};
+//
+//     pushDouble(point);
+//     // SymmetricLine(1);
+//
+//     scaleLine();
+// }, false);
 
 canvas.addEventListener('contextmenu', function (event) {
     var x = event.pageX - cL;
@@ -59,7 +79,6 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
-
     switch (parseInt(keyName)) {
         case 1:
         case 3:
@@ -100,6 +119,37 @@ getPixelClr = function(imageData, point, which){
             return null;
     }
 };
+//
+// scaleLine = function(){
+//     if(double.length !== 2)
+//         return;
+//     ctx.beginPath();
+//     ctx.moveTo(double[0].x * 2, double[0].y * 2);
+//     ctx.lineTo(double[1].x * 2, double[1].y * 2);
+//     ctx.lineWidth = parseInt(thickness) * 2;
+//     ctx.stroke();
+//
+//     scaleCanvas();
+// };
+// scaleCanvas = function(){
+//     let curImgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+//     let tarImgData = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
+//
+//     for(let i = 0; i < 300; i++){
+//         for(let j = 0; j < 400; j++){
+//             tarImgData.data[((i - 1) * tarImgData.width + (j - 1)) * 4 - 1 + 1] =
+//                 curImgData.data[((i*2 - 1) * curImgData.width + (j*2 - 1)) * 4 - 1 + 1];
+//
+//             tarImgData.data[((i - 1) * tarImgData.width + (j - 1)) * 4 - 1 + 2] =
+//                 curImgData.data[((i*2 - 1) * curImgData.width + (j*2 - 1)) * 4 - 1 + 2];
+//
+//             tarImgData.data[((i - 1) * tarImgData.width + (j - 1)) * 4 - 1 + 3] =
+//                 curImgData.data[((i*2 - 1) * curImgData.width + (j*2 - 1)) * 4 - 1 + 3];
+//         }
+//     }
+//     ctx2.putImageData(tarImgData, 0, 0);
+// };
+
 
 drawPoint = function(x, y, clr = 0, sz = 1){
     var A1 = [1];
@@ -156,7 +206,6 @@ drawPoint = function(x, y, clr = 0, sz = 1){
     else{
         for(let i = 0; i < sz; i++){
             for(let j = 0; j < sz; j++){
-                console.log("fuck draw");
                 if(A[i][j]){
                     curImgData.data[(((y+j - (sz-1)/2) - 1) * curImgData.width + ((x+i - (sz-1)/2) - 1)) * 4 - 1 + 1] = clr;
                     curImgData.data[(((y+j - (sz-1)/2) - 1) * curImgData.width + ((x+i - (sz-1)/2) - 1)) * 4 - 1 + 2] = clr;
@@ -189,6 +238,7 @@ SymmetricLine = function(sz)
 
     var dx = x2 - x1;
     var dy = y2 - y1;
+    var dxm = -dx;
     var dym = -dy;
     var d = 2*dy - dx;
     var d1 = 2*dx - dy;
@@ -206,10 +256,9 @@ SymmetricLine = function(sz)
     drawPoint(xf, yf, 0, sz);
     drawPoint(xb, yb, 0, sz);
 
-    while (xf < xb)
-    {
-        if(dy > 0){
-            if(dx > dy){
+    if(Math.abs(dx) >= Math.abs(dy)){
+        while(xf < xb){
+            if(dy > 0){
                 ++xf; --xb;
                 if ( d < 0 )
                     d += dE;
@@ -217,35 +266,14 @@ SymmetricLine = function(sz)
                 {
                     d += dNE;
                     if(yf < yb){
-                        ++yf;
-                        --yb;
+                        ++yf;--yb;
                     }
                     else{
-                        --yf;
-                        ++yb;
+                        --yf;++yb;
                     }
                 }
             }
-            else {
-                if(yf < yb){
-                    ++yf;
-                    --yb;
-                }
-                else{
-                    --yf;
-                    ++yb;
-                }
-                if(d1 < 0)
-                    d1 += dE1;
-                else{
-                    d1 += dNE1;
-                    ++xf;
-                    --xb;
-                }
-            }
-        }
-        else {
-            if(dx > dym){
+            else{
                 ++xf; --xb;
                 if ( dm < 0 )
                     dm += dEm;
@@ -253,36 +281,130 @@ SymmetricLine = function(sz)
                 {
                     dm += dNEm;
                     if(yf < yb){
-                        ++yf;
-                        --yb;
+                        ++yf;--yb;
                     }
                     else{
-                        --yf;
-                        ++yb;
+                        --yf;++yb;
                     }
                 }
             }
-            else {
-                if(yf < yb){
-                    ++yf;
-                    --yb;
-                }
-                else{
-                    --yf;
-                    ++yb;
-                }
-                if(d1m < 0)
-                    d1m += dE1;
-                else{
-                    d1m += dNE1m;
-                    ++xf;
-                    --xb;
+            drawPoint(xf, yf, 0, sz);
+            drawPoint(xb, yb, 0, sz);
+        }
+    }
+    else{
+        if(dy > 0){
+            if(yf <= yb){
+                while(yf < yb){
+                    ++yf; --yb;
+                    if(d1 < 0)
+                        d1 += dE1;
+                    else{
+                        d1 += dNE1;
+                        ++xf;
+                        --xb;
+                    }
+                    drawPoint(xf, yf, 0, sz);
+                    drawPoint(xb, yb, 0, sz);
                 }
             }
         }
-        drawPoint(xf, yf, 0, sz);
-        drawPoint(xb, yb, 0, sz);
+        else{
+            if(yf >= yb){
+                while(yf > yb){
+                    --yf; ++yb;
+                    if(d1m < 0)
+                        d1m += dE1;
+                    else{
+                        d1m += dNE1m;
+                        ++xf;
+                        --xb;
+                    }
+                    drawPoint(xf, yf, 0, sz);
+                    drawPoint(xb, yb, 0, sz);
+                }
+            }
+        }
     }
+
+
+    // while (xf < xb)
+    // {
+    //     if(dy > 0){
+    //         if(dx > dy){
+    //             ++xf; --xb;
+    //             if ( d < 0 )
+    //                 d += dE;
+    //             else
+    //             {
+    //                 d += dNE;
+    //                 if(yf < yb){
+    //                     ++yf;
+    //                     --yb;
+    //                 }
+    //                 else{
+    //                     --yf;
+    //                     ++yb;
+    //                 }
+    //             }
+    //         }
+    //         else {
+    //             if(yf < yb){
+    //                 ++yf;
+    //                 --yb;
+    //             }
+    //             else{
+    //                 --yf;
+    //                 ++yb;
+    //             }
+    //             if(d1 < 0)
+    //                 d1 += dE1;
+    //             else{
+    //                 d1 += dNE1;
+    //                 ++xf;
+    //                 --xb;
+    //             }
+    //         }
+    //     }
+    //     else {
+    //         if(dx > dym){
+    //             ++xf; --xb;
+    //             if ( dm < 0 )
+    //                 dm += dEm;
+    //             else
+    //             {
+    //                 dm += dNEm;
+    //                 if(yf < yb){
+    //                     ++yf;
+    //                     --yb;
+    //                 }
+    //                 else{
+    //                     --yf;
+    //                     ++yb;
+    //                 }
+    //             }
+    //         }
+    //         else {
+    //             if(yf < yb){
+    //                 ++yf;
+    //                 --yb;
+    //             }
+    //             else{
+    //                 --yf;
+    //                 ++yb;
+    //             }
+    //             if(d1m < 0)
+    //                 d1m += dE1;
+    //             else{
+    //                 d1m += dNE1m;
+    //                 ++xf;
+    //                 --xb;
+    //             }
+    //         }
+    //     }
+    //     drawPoint(xf, yf, 0, sz);
+    //     drawPoint(xb, yb, 0, sz);
+    // }
     if(xf === xb){
         while(Math.abs(yf - yb) > 1){
             if(dy > 0){
@@ -303,6 +425,10 @@ MidpointCircle = function(point, R)
     var x = 0;
     var y = R;
     drawPoint(x + point.x, y + point.y);
+    drawPoint(x - point.x, y + point.y);
+    drawPoint(x + point.x, y - point.y);
+    drawPoint(x - point.x, y - point.y);
+
     while (y > x)
     {
         if ( d < 0 ) //move to E
@@ -445,10 +571,9 @@ ThickAntialiasedLine = function(thickness)
         }
     }
 
-    while (xf < xb)
-    {
-        if(dy > 0){
-            if(dx > dy){
+    if(Math.abs(dx) >= Math.abs(dy)){
+        while(xf < xb){
+            if(dy > 0){
                 console.log("First");
                 ++xf;
                 if ( d < 0 ){
@@ -470,31 +595,7 @@ ThickAntialiasedLine = function(thickness)
                 for(i=1; IntensifyPixel(xf, yf+i, thickness, Math.abs(i*two_dx_invDenom - two_v_dx*invDenom)); ++i){}
                 for(i=1; IntensifyPixel(xf, yf-i, thickness, Math.abs(i*two_dx_invDenom + two_v_dx*invDenom)); ++i){}
             }
-            else {
-                console.log("Second");
-                if(yf < yb){
-                    ++yf;
-                }
-                else if(yf > yb){
-                    --yf;
-                }
-                if(d1 < 0){
-                    two_v_dy = d1 + dy;
-                    d1 += dE1;
-
-                }
-                else{
-                    two_v_dy = d1 - dy;
-                    d1 += dNE1;
-                    ++xf;
-                }
-                IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
-                for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
-                for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
-            }
-        }
-        else {
-            if(dx > dym){
+            else{
                 console.log("Third");
                 ++xf;
                 if ( dm < 0 ){
@@ -516,30 +617,148 @@ ThickAntialiasedLine = function(thickness)
                 for(i=1; IntensifyPixel(xf, yf-i, thickness, Math.abs(i*two_dx_invDenom - two_v_dx*invDenom)); ++i){}
                 for(i=1; IntensifyPixel(xf, yf+i, thickness, Math.abs(i*two_dx_invDenom + two_v_dx*invDenom)); ++i){}
             }
-            else {
-                console.log("Fourth");
-                if(yf < yb){
+        }
+    }
+    else{
+        if(dy > 0){
+            if(yf <= yb){
+                while(yf < yb){
+                    console.log("Second");
                     ++yf;
-                }
-                else if(yf > yb){
-                    --yf;
-                }
-                if(d1m < 0){
-                    two_v_dy = d1m + dym;
-                    d1m += dE1;
-                }
-                else{
-                    two_v_dy = d1m - dym;
-                    d1m += dNE1m;
-                    ++xf;
-                }
-                IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
-                for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
-                for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
+                    if(d1 < 0){
+                        two_v_dy = d1 + dy;
+                        d1 += dE1;
 
+                    }
+                    else{
+                        two_v_dy = d1 - dy;
+                        d1 += dNE1;
+                        ++xf;
+                    }
+                    IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
+                    for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
+                    for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
+                }
+            }
+        }
+        else{
+            if(yf >= yb){
+                while(yf > yb){
+                    console.log("Fourth");
+                        --yf;
+                    if(d1m < 0){
+                        two_v_dy = d1m + dym;
+                        d1m += dE1;
+                    }
+                    else{
+                        two_v_dy = d1m - dym;
+                        d1m += dNE1m;
+                        ++xf;
+                    }
+                    IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
+                    for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
+                    for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
+
+                }
             }
         }
     }
+
+    // while (xf < xb)
+    // {
+    //     if(dy > 0){
+    //         if(dx > dy){
+    //             console.log("First");
+    //             ++xf;
+    //             if ( d < 0 ){
+    //                 two_v_dx = d + dx;
+    //                 d += dE;
+    //             }
+    //             else
+    //             {
+    //                 two_v_dx = d - dx;
+    //                 d += dNE;
+    //                 if(yf < yb){
+    //                     ++yf;
+    //                 }
+    //                 else if(yf > yb){
+    //                     --yf;
+    //                 }
+    //             }
+    //             IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dx*invDenom));
+    //             for(i=1; IntensifyPixel(xf, yf+i, thickness, Math.abs(i*two_dx_invDenom - two_v_dx*invDenom)); ++i){}
+    //             for(i=1; IntensifyPixel(xf, yf-i, thickness, Math.abs(i*two_dx_invDenom + two_v_dx*invDenom)); ++i){}
+    //         }
+    //         else {
+    //             console.log("Second");
+    //             if(yf < yb){
+    //                 ++yf;
+    //             }
+    //             else if(yf > yb){
+    //                 --yf;
+    //             }
+    //             if(d1 < 0){
+    //                 two_v_dy = d1 + dy;
+    //                 d1 += dE1;
+    //
+    //             }
+    //             else{
+    //                 two_v_dy = d1 - dy;
+    //                 d1 += dNE1;
+    //                 ++xf;
+    //             }
+    //             IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
+    //             for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
+    //             for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
+    //         }
+    //     }
+    //     else {
+    //         if(dx > dym){
+    //             console.log("Third");
+    //             ++xf;
+    //             if ( dm < 0 ){
+    //                 two_v_dx = dm + dx;
+    //                 dm += dEm;
+    //             }
+    //             else
+    //             {
+    //                 two_v_dx = dm - dx;
+    //                 dm += dNEm;
+    //                 if(yf < yb){
+    //                     ++yf;
+    //                 }
+    //                 else if(yf > yb){
+    //                     --yf;
+    //                 }
+    //             }
+    //             IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dx*invDenom));
+    //             for(i=1; IntensifyPixel(xf, yf-i, thickness, Math.abs(i*two_dx_invDenom - two_v_dx*invDenom)); ++i){}
+    //             for(i=1; IntensifyPixel(xf, yf+i, thickness, Math.abs(i*two_dx_invDenom + two_v_dx*invDenom)); ++i){}
+    //         }
+    //         else {
+    //             console.log("Fourth");
+    //             if(yf < yb){
+    //                 ++yf;
+    //             }
+    //             else if(yf > yb){
+    //                 --yf;
+    //             }
+    //             if(d1m < 0){
+    //                 two_v_dy = d1m + dym;
+    //                 d1m += dE1;
+    //             }
+    //             else{
+    //                 two_v_dy = d1m - dym;
+    //                 d1m += dNE1m;
+    //                 ++xf;
+    //             }
+    //             IntensifyPixel(xf, yf, thickness, Math.abs(two_v_dy*invDenom));
+    //             for(i=1; IntensifyPixel(xf+i, yf, thickness, Math.abs(i*two_dy_invDenom - two_v_dy*invDenom)); ++i){}
+    //             for(i=1; IntensifyPixel(xf-i, yf, thickness, Math.abs(i*two_dy_invDenom + two_v_dy*invDenom)); ++i){}
+    //
+    //         }
+    //     }
+    // }
 };
 
 Original = function(thickness){
