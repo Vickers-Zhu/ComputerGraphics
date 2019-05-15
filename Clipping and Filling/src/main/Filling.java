@@ -144,6 +144,23 @@ public class Filling {
 		}
 	}
 	
+	public int printAET() {
+		Edge e = this.activeedgetable;
+		int i =0;
+		if(e == null) return 0;
+		while(true) {
+			if(e.next == null) {
+				System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+")");
+				i++;
+				break;
+			}
+			System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+")");
+			e = e.next;
+			i++;
+		}
+		return i;
+	}
+	
 	public void etToAet(int y) {
 		Edge old;
 		if(buckets.containsKey(y)) {
@@ -158,6 +175,7 @@ public class Filling {
 					old = old.next;
 				}
 			}
+//			printAET();
 			quickSort();
 		}
 	}
@@ -165,29 +183,37 @@ public class Filling {
 	public void quickSort() {
 		Vector<Edge> es = new Vector<Edge>();
 		Edge e = this.activeedgetable;
+		if(e == null) return;
+		System.out.println("Arrived");
 		es.add(e);
-		while(e.next != null) {
+		while(true) {
+			if(e.next==null) {
+				break;
+			}
+//			System.out.println("Loop!");
 			e = e.next;
 			es.add(e);
 		}
+//
 		for(int i = 0; i < es.size()-1; i++) {
-			for(int j = es.size()-1; j>i; j--) {
-				if(es.get(j).xMin < es.get(j-1).xMin) {
+			for(int j = i+1; j < es.size(); j++) {
+				if(es.get(j).xMin < es.get(i).xMin) {
 					Edge tmp = es.get(j);
-					es.setElementAt(es.get(j-1), j);
-					es.setElementAt(tmp, j-1);
+					es.set(j, es.get(i));
+					es.set(i, tmp);
 				}
 			}
 		}
-		this.activeedgetable = null;
+
+		this.activeedgetable = es.firstElement();
+		es.remove(0);
 		e = this.activeedgetable;
-		e = es.firstElement();
-		es.remove(es.indexOf(es.firstElement()));
 		while(!es.isEmpty()) {
 			e.next = es.firstElement();
-			es.remove(es.indexOf(es.firstElement()));
+			es.remove(0);
 			e = e.next;
-		}
+			e.next = null;
+		}	
     }
 
 	public void deleteNode(Edge head ,int x){

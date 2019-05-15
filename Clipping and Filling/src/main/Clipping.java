@@ -343,32 +343,26 @@ public class Clipping extends JPanel{
 	}
 	
 	public void fillPoly(Filling f) {
-		int y = f.getMinY();
-		int maxY = f.getMaxY();
+		int y = f.yMin;
+		int maxY = f.yMax;
+		System.out.println("Ymin is: " + y+"Ymax is: " + maxY);
 		Filling.Edge old, pre;
 		Filling.Edge begin, end;
-//		while(!f.buckets.isEmpty() || f.activeedgetable!=null){
-		while(y <= maxY){
-
+		while(!f.buckets.isEmpty() || f.activeedgetable!=null){
 			f.etToAet(y);
-
 			old = f.activeedgetable;
 			while(true) {
 				if(old.next==null) {
-					System.out.println(old.xMin);
 					break;
 				}
-				System.out.println(old.xMin);
 				old = old.next;
 			}
-//			end = old;
+			end = old;
+			for(int i = f.activeedgetable.xMin; i < end.xMin; i++) {
+				canvas.setRGB(i, y, Color.green.getRGB());
+			}
 			++y;
-			break;
-//			for(int i = f.activeedgetable.xMin; i < end.xMin; i++) {
-//				canvas.setRGB(i, y, Color.green.getRGB());
-//			}
-//			++y;
-//			f.deleteNode(f.activeedgetable, y);
+			f.deleteNode(f.activeedgetable, y);
 //			
 //			begin = f.activeedgetable;
 //			old = begin;
