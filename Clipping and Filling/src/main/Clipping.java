@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -350,6 +351,7 @@ public class Clipping extends JPanel{
 		Filling.Edge begin, end;
 		while(!f.buckets.isEmpty() || f.activeedgetable!=null){
 			f.etToAet(y);
+			f.printAET();
 			old = f.activeedgetable;
 			while(true) {
 				if(old.next==null) {
@@ -358,22 +360,26 @@ public class Clipping extends JPanel{
 				old = old.next;
 			}
 			end = old;
-			for(int i = f.activeedgetable.xMin; i < end.xMin; i++) {
-				canvas.setRGB(i, y, Color.green.getRGB());
+			pre = f.activeedgetable;
+			old = pre.next;
+			while(true) {
+				for(int i = pre.xMin; i < old.xMin; i++) {
+					canvas.setRGB(i, y, Color.green.getRGB());
+				}
+				if(old.next!=null) {
+					pre = old.next;
+					old = pre.next;
+				}
+				else break;
 			}
 			++y;
-			f.deleteNode(f.activeedgetable, y);
-//			
-//			begin = f.activeedgetable;
-//			old = begin;
-//			while(old.next != null) {
-//				old.xMin += old.m;
-//				old = old.next;
-//			}
-//			old.xMin += old.m;
-//			
-//			repaint();
+			System.out.println(y);
+			while(f.getIndexByValue(f.activeedgetable, y) != -1) {
+				System.out.println("Index is: "+f.getIndexByValue(f.activeedgetable, y));
+				f.activeedgetable = f.dlByIndex(f.activeedgetable, f.getIndexByValue(f.activeedgetable, y));
+			}
+			f.plusEach();
+			repaint();
 		}
-//		f.printET();
 	}
 }

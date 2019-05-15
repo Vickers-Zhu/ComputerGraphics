@@ -26,6 +26,7 @@ public class Filling {
 		yMin = getMinY();
 		yMax = getMaxY();
 		Init();
+		printET();
 	}
 
 	public void Init() {
@@ -135,10 +136,10 @@ public class Filling {
 			if(!buckets.containsKey(i)) continue;
 			e = buckets.get(i);
 			System.out.print("Bucket "+i+": ");
-			System.out.print("[(ymax:"+e.yMax+"), (xmin:"+e.xMin+"), (dx/dy:"+e.m+")");
+			System.out.print("[(ymin: "+e.yMin()+"), (ymax:"+e.yMax+"), (xmin:"+e.xMin+"), (dx/dy:"+e.m+")");
 			while(e.next != null) {
 				e = e.next;
-				System.out.print(" --> (ymax:"+e.yMax+"), (xmin:"+e.xMin+"), (dx/dy:"+e.m+")");
+				System.out.print(" --> (ymin: "+e.yMin()+"), (ymax:"+e.yMax+"), (xmin:"+e.xMin+"), (dx/dy:"+e.m+")");
 			}
 			System.out.println("]");
 		}
@@ -175,8 +176,8 @@ public class Filling {
 					old = old.next;
 				}
 			}
-//			printAET();
-			quickSort();
+			buckets.remove(y);
+			quickSort();			
 		}
 	}
 	
@@ -184,17 +185,14 @@ public class Filling {
 		Vector<Edge> es = new Vector<Edge>();
 		Edge e = this.activeedgetable;
 		if(e == null) return;
-		System.out.println("Arrived");
 		es.add(e);
 		while(true) {
 			if(e.next==null) {
 				break;
 			}
-//			System.out.println("Loop!");
 			e = e.next;
 			es.add(e);
 		}
-//
 		for(int i = 0; i < es.size()-1; i++) {
 			for(int j = i+1; j < es.size(); j++) {
 				if(es.get(j).xMin < es.get(i).xMin) {
@@ -216,26 +214,107 @@ public class Filling {
 		}	
     }
 
-	public void deleteNode(Edge head ,int x){
+	public void deleteNode(int x){
+		Vector<Edge> es = new Vector<Edge>();
+		Edge e = this.activeedgetable;
+		if(e == null) return;
+		System.out.println("Arrived");
+		es.add(e);
+		while(true) {
+			if(e.next==null) {
+				break;
+			}
+			e = e.next;
+			es.add(e);
+		}
+		for(Edge d : es) {
+			if(d.yMax == x)
+				es.remove(es.indexOf(d));
+		}
+		this.activeedgetable = es.firstElement();
+		es.remove(0);
+		e = this.activeedgetable;
+		while(!es.isEmpty()) {
+			e.next = es.firstElement();
+			es.remove(0);
+			e = e.next;
+			e.next = null;
+		}
+	}
+//	public Edge dlNode(Edge head, int x) {
+//		Edge p = head;
+//		if(head == null) return head;
+//		if(head.next == null) {
+//			if(head.yMax == x) {
+//				head = null;
+//				return head;
+//			}
+//		}
+//		Edge q = p.next;
+//		while(q!=null) {
+//			if(q.yMax == x) {
+//				p.next = q.next;
+//				p = q.next;
+//				if(q.next == null) {
+//					
+//				}
+//				q = p.next;
+//				continue;
+//			}
+//			if(q.next == null) {
+//				if(q.yMax == x) {
+//					p.next = null;
+//					break;
+//				}
+//			}
+//			p = q;
+//			q = q.next;
+//		}
+//		return head;
+//	}
+	public void plusEach() {
+		Edge e = this.activeedgetable;
+		if(e == null) return;
+		while(true) {
+			if(e.next == null) {
+				e.xMin += e.m;
+				break;
+			}
+			e.xMin += e.m;
+			e = e.next;
+		}
+	}
+	
+	public int getIndexByValue(Edge head, int x) {
+		Edge e = head;
+		int i = 0;
+		if(e == null) return -1;
+		while(e != null) {
+			if(e.yMax == x) {
+				return i;
+			} 
+			e = e.next;
+			i++;
+		}
+		return -1;
+	}
+	
+	public Edge dlByIndex(Edge head, int index) {
 		Edge p = head;
-	    Edge q=p.next;
-	    if(p.yMax == x) {
-	    	head = null;
-	    }
-	    while(q!=null){
-	    	if(q.yMax==x){
-	    		p.next = q.next;
-	    		q = q.next;
-	    	}
-	    	if(q.next == null) {
-	    		if(q.yMax == x) 
-	    			q = null;
-	    	}
-	    	else {
-		    	p=q;
-		    	q=q.next;
-	    	}
-	    }
+		Edge q = p;
+		int i = 0;
+		if(p == null) return head;
+		if(index == 0) {
+			head = head.next;
+			return head;
+		}
+		while(i != index) {
+			q = p;
+			p = p.next;
+			i++;
+		}
+		q.next = p.next;
+		return head;
 	}
 
 	public class Edge{
