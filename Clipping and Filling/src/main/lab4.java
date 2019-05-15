@@ -17,5 +17,7 @@ public class lab4{
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel.requestFocus();
+          
+        
     }
 }
