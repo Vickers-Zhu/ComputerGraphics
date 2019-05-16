@@ -260,30 +260,30 @@ public class Clipping extends JPanel{
 		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) + Math.abs(d.y - c.y)  
 	            + Math.abs(d.x - c.x) == 0) {  
 		        if ((c.x - a.x) + (c.y - a.y) == 0) {  
-		            System.out.println("ABCD是同一个点！");  
+//		            System.out.println("ABCD是同一个点！");  
 		        } else {  
-		            System.out.println("AB是一个点，CD是一个点，且AC不同！");  
+//		            System.out.println("AB是一个点，CD是一个点，且AC不同！");  
 		        }  
 		        continue;
 		    }  
 		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) == 0) {  
 		    	if ((a.x - d.x) * (c.y - d.y) - (a.y - d.y) * (c.x - d.x) == 0) {  
-		    		System.out.println("A、B是一个点，且在CD线段上！");  
+//		    		System.out.println("A、B是一个点，且在CD线段上！");  
 		    	} else {  
-		    		System.out.println("A、B是一个点，且不在CD线段上！");  
+//		    		System.out.println("A、B是一个点，且不在CD线段上！");  
 		    	}  
 		    	continue; 
 		    }  
 		    if (Math.abs(d.y - c.y) + Math.abs(d.x - c.x) == 0) {  
 		    	if ((d.x - b.x) * (a.y - b.y) - (d.y - b.y) * (a.x - b.x) == 0) {  
-		    		System.out.println("C、D是一个点，且在AB线段上！");  
+//		    		System.out.println("C、D是一个点，且在AB线段上！");  
 		    	} else {  	
-		    		System.out.println("C、D是一个点，且不在AB线段上！");  
+//		    		System.out.println("C、D是一个点，且不在AB线段上！");  
 		    	}  
 		    	continue;  
 		    }  
 		    if ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y) == 0) {  
-		        System.out.println("线段平行，无交点！");  
+//		        System.out.println("线段平行，无交点！");  
 		        continue; 
 		    }  
 		    intersection.x = ((b.x - a.x) * (c.x - d.x) * (c.y - a.y) -   
@@ -296,10 +296,10 @@ public class Clipping extends JPanel{
 		            && (intersection.x - c.x) * (intersection.x - d.x) <= 0  
 		            && (intersection.y - a.y) * (intersection.y - b.y) <= 0  
 		            && (intersection.y - c.y) * (intersection.y - d.y) <= 0) {       
-		        System.out.println("线段相交于点(" + intersection.x + "," + intersection.y + ")！");  
+//		        System.out.println("线段相交于点(" + intersection.x + "," + intersection.y + ")！");  
 		        return intersection;
 		    } else {  
-		        System.out.println("线段相交于虚交点(" + intersection.x + "," + intersection.y + ")！");  
+//		        System.out.println("线段相交于虚交点(" + intersection.x + "," + intersection.y + ")！");  
 		        continue; // '相交但不在线段上  	
 			}
 		}
@@ -336,8 +336,8 @@ public class Clipping extends JPanel{
 	public void clipedDraw(Vector<Point> outPoly) {
 		Point s = outPoly.lastElement();
 		for(Point p : outPoly) {
-			if(!pointlist.contains(p) && !pointlist.contains(s)) {}
-			else
+//			if(!pointlist.contains(p) && !pointlist.contains(s)) {}
+//			else
 				drawLine(Color.blue, s.x, s.y, p.x, p.y);
 			s = p;
 		}
@@ -351,6 +351,7 @@ public class Clipping extends JPanel{
 		Filling.Edge begin, end;
 		while(!f.buckets.isEmpty() || f.activeedgetable!=null){
 			f.etToAet(y);
+			f.quickSort();
 			f.printAET();
 			old = f.activeedgetable;
 			while(true) {
@@ -363,7 +364,7 @@ public class Clipping extends JPanel{
 			pre = f.activeedgetable;
 			old = pre.next;
 			while(true) {
-				for(int i = pre.xMin; i < old.xMin; i++) {
+				for(int i = Math.round(pre.xMin); i < old.xMin; i++) {
 					canvas.setRGB(i, y, Color.green.getRGB());
 				}
 				if(old.next!=null) {

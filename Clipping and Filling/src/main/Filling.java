@@ -151,11 +151,11 @@ public class Filling {
 		if(e == null) return 0;
 		while(true) {
 			if(e.next == null) {
-				System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+")");
+				System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+"), (m: "+e.m+")");
 				i++;
 				break;
 			}
-			System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+")");
+			System.out.println("(yMax: "+e.yMax+"),(xMin: "+e.xMin+"), (m: "+e.m+")");
 			e = e.next;
 			i++;
 		}
@@ -177,7 +177,6 @@ public class Filling {
 				}
 			}
 			buckets.remove(y);
-			quickSort();			
 		}
 	}
 	
@@ -321,7 +320,7 @@ public class Filling {
 		private Point point1;
 		private Point point2;
 		public int yMax;
-		public int xMin;
+		public float xMin;
 		public float m;
 		public Edge next;
 		
@@ -336,7 +335,7 @@ public class Filling {
 				this.yMax = this.point2.y;
 				this.xMin = this.point1.x;
 			}
-			this.m = (this.point1.x - this.point2.x)/(this.point1.y - this.point2.y);
+			this.m = (float) (1.0 * (this.point1.x - this.point2.x)/(this.point1.y - this.point2.y));
 		}
 		public Point getFirst() {
 			return this.point1;
