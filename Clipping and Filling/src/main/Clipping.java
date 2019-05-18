@@ -16,7 +16,6 @@ import java.awt.image.BufferedImage;
 
 import java.util.Vector;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Clipping extends JPanel{
@@ -39,7 +38,6 @@ public class Clipping extends JPanel{
 		addMouseListener(listener);
 		addMouseMotionListener(listener);
 		addKeyListener(keylistener);		
-		System.out.println("Pressing C can change to the Boundary Line");
     }
 
     public Dimension getPreferredSize() {
@@ -221,7 +219,8 @@ public class Clipping extends JPanel{
 				break;
 			case KeyEvent.VK_O:
 				canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-				clipedDraw(SutherlandHodgman(new Vector<Point>(), new Vector<Point>()));
+				clipedDraw();
+				repaint();
 				break;
 			case KeyEvent.VK_R:
 				canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -237,108 +236,174 @@ public class Clipping extends JPanel{
 		}
 	}
 	
-	public boolean isInside(Point point, Vector<Point> clipBoundary) {
-		GeneralPath path = new GeneralPath();
-		path.moveTo(clipBoundary.firstElement().getX(), clipBoundary.firstElement().getY());
-		for(Point p : clipBoundary) 
-			path.lineTo(p.getX(), p.getY());
-		path.lineTo(clipBoundary.firstElement().getX(), clipBoundary.firstElement().getY());
-		path.closePath();
-		return path.contains(new Point2D.Double(point.getX(), point.getY()));
+	public boolean isInside(Point point, Point clip1, Point clip2) {
+		float A = clip2.y - clip1.y;
+		float B = clip1.x - clip2.x;
+		float C = clip2.x * clip1.y - clip1.x * clip2.y;
+		float D = A * point.x + B * point.y + C;
+		boolean flag, flagP = A * clipBoundary.firstElement().x + B * clipBoundary.firstElement().y + C > 0 ? true : false;
+		flag = D > 0 ? true : false;
+		for(Point p : this.clipBoundary) {
+			if(A * p.x + B * p.y + C != 0) {
+				flagP = A * p.x + B * p.y + C > 0 ? true : false;
+			};
 		}
-	
-	public Point intersect(Point a, Point b, Vector<Point> clipBoundary) {
-		Point intersection = new Point();
-		for(int i=0; i < clipBoundary.size(); i++) {
-			Point c = clipBoundary.get(i);
-			Point d = new Point();
-			if(i == clipBoundary.size()-1)
-				d = clipBoundary.firstElement();
-			else 
-				d = clipBoundary.get(i+1);
-
-		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) + Math.abs(d.y - c.y)  
-	            + Math.abs(d.x - c.x) == 0) {  
-		        if ((c.x - a.x) + (c.y - a.y) == 0) {  
-//		            System.out.println("ABCD是同一个点！");  
-		        } else {  
-//		            System.out.println("AB是一个点，CD是一个点，且AC不同！");  
-		        }  
-		        continue;
-		    }  
-		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) == 0) {  
-		    	if ((a.x - d.x) * (c.y - d.y) - (a.y - d.y) * (c.x - d.x) == 0) {  
-//		    		System.out.println("A、B是一个点，且在CD线段上！");  
-		    	} else {  
-//		    		System.out.println("A、B是一个点，且不在CD线段上！");  
-		    	}  
-		    	continue; 
-		    }  
-		    if (Math.abs(d.y - c.y) + Math.abs(d.x - c.x) == 0) {  
-		    	if ((d.x - b.x) * (a.y - b.y) - (d.y - b.y) * (a.x - b.x) == 0) {  
-//		    		System.out.println("C、D是一个点，且在AB线段上！");  
-		    	} else {  	
-//		    		System.out.println("C、D是一个点，且不在AB线段上！");  
-		    	}  
-		    	continue;  
-		    }  
-		    if ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y) == 0) {  
-//		        System.out.println("线段平行，无交点！");  
-		        continue; 
-		    }  
-		    intersection.x = ((b.x - a.x) * (c.x - d.x) * (c.y - a.y) -   
-		            c.x * (b.x - a.x) * (c.y - d.y) + a.x * (b.y - a.y) * (c.x - d.x)) /   
-		            ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y));  
-		    intersection.y = ((b.y - a.y) * (c.y - d.y) * (c.x - a.x) - c.y  
-		            * (b.y - a.y) * (c.x - d.x) + a.y * (b.x - a.x) * (c.y - d.y))  
-		            / ((b.x - a.x) * (c.y - d.y) - (b.y - a.y) * (c.x - d.x));  
-		    if ((intersection.x - a.x) * (intersection.x - b.x) <= 0  
-		            && (intersection.x - c.x) * (intersection.x - d.x) <= 0  
-		            && (intersection.y - a.y) * (intersection.y - b.y) <= 0  
-		            && (intersection.y - c.y) * (intersection.y - d.y) <= 0) {       
-//		        System.out.println("线段相交于点(" + intersection.x + "," + intersection.y + ")！");  
-		        return intersection;
-		    } else {  
-//		        System.out.println("线段相交于虚交点(" + intersection.x + "," + intersection.y + ")！");  
-		        continue; // '相交但不在线段上  	
-			}
-		}
-		return null;
+		if(flag == flagP) System.out.println("The same direction!");
+		return flag == flagP;
 	}
 	
-	public Vector<Point> SutherlandHodgman(Vector<Point> inPoly, Vector<Point> clipBoundary)
+	private Point intersect(Point a, Point b, Point c, Point d) {
+		Point intersection = new Point(0, 0);
+
+        if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) + Math.abs(d.y - c.y)
+            + Math.abs(d.x - c.x) == 0) {
+        	if ((c.x - a.x) + (c.y - a.y) == 0) {
+                System.out.println("ABCD是同一个点！");
+            } else {
+                System.out.println("AB是一个点，CD是一个点，且AC不同！");
+            }
+            return null;
+        	}
+        if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) == 0) {
+            if ((a.x - d.x) * (c.y - d.y) - (a.y - d.y) * (c.x - d.x) == 0) {
+                System.out.println("A、B是一个点，且在CD线段上！");
+            } else {
+                System.out.println("A、B是一个点，且不在CD线段上！");
+            }
+            return null;
+        }
+        if (Math.abs(d.y - c.y) + Math.abs(d.x - c.x) == 0) {
+            if ((d.x - b.x) * (a.y - b.y) - (d.y - b.y) * (a.x - b.x) == 0) {
+                System.out.println("C、D是一个点，且在AB线段上！");
+            } else {
+                System.out.println("C、D是一个点，且不在AB线段上！");
+            }
+            return null;
+        }
+        if ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y) == 0) {
+            System.out.println("线段平行，无交点！");
+            return null;
+        }
+        intersection.x = ((b.x - a.x) * (c.x - d.x) * (c.y - a.y) - 
+                c.x * (b.x - a.x) * (c.y - d.y) + a.x * (b.y - a.y) * (c.x - d.x)) / 
+                ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y));
+        intersection.y = ((b.y - a.y) * (c.y - d.y) * (c.x - a.x) - c.y
+                * (b.y - a.y) * (c.x - d.x) + a.y * (b.x - a.x) * (c.y - d.y))
+                / ((b.x - a.x) * (c.y - d.y) - (b.y - a.y) * (c.x - d.x));
+        if ((intersection.x - a.x) * (intersection.x - b.x) <= 0
+                && (intersection.x - c.x) * (intersection.x - d.x) <= 0
+                && (intersection.y - a.y) * (intersection.y - b.y) <= 0
+                && (intersection.y - c.y) * (intersection.y - d.y) <= 0) {
+            System.out.println("线段相交于点(" + intersection.x + "," + intersection.y + ")！");
+            return new Point(intersection.x, intersection.y); // '相交
+        } else {
+            System.out.println("线段相交于虚交点(" + intersection.x + "," + intersection.y + ")！");
+            return null; // '相交但不在线段上
+        }
+    }
+    
+
+
+
+	
+//	public Point intersect(Point a, Point b, Vector<Point> clipBoundary) {
+//		Point intersection = new Point();
+//		for(int i=0; i < clipBoundary.size(); i++) {
+//			Point c = clipBoundary.get(i);
+//			Point d = new Point();
+//			if(i == clipBoundary.size()-1)
+//				d = clipBoundary.firstElement();
+//			else 
+//				d = clipBoundary.get(i+1);
+//
+//		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) + Math.abs(d.y - c.y)  
+//	            + Math.abs(d.x - c.x) == 0) {  
+//		        if ((c.x - a.x) + (c.y - a.y) == 0) {  
+////		            System.out.println("ABCD是同一个点！");  
+//		        } else {  
+////		            System.out.println("AB是一个点，CD是一个点，且AC不同！");  
+//		        }  
+//		        continue;
+//		    }  
+//		    if (Math.abs(b.y - a.y) + Math.abs(b.x - a.x) == 0) {  
+//		    	if ((a.x - d.x) * (c.y - d.y) - (a.y - d.y) * (c.x - d.x) == 0) {  
+////		    		System.out.println("A、B是一个点，且在CD线段上！");  
+//		    	} else {  
+////		    		System.out.println("A、B是一个点，且不在CD线段上！");  
+//		    	}  
+//		    	continue; 
+//		    }  
+//		    if (Math.abs(d.y - c.y) + Math.abs(d.x - c.x) == 0) {  
+//		    	if ((d.x - b.x) * (a.y - b.y) - (d.y - b.y) * (a.x - b.x) == 0) {  
+////		    		System.out.println("C、D是一个点，且在AB线段上！");  
+//		    	} else {  	
+////		    		System.out.println("C、D是一个点，且不在AB线段上！");  
+//		    	}  
+//		    	continue;  
+//		    }  
+//		    if ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y) == 0) {  
+////		        System.out.println("线段平行，无交点！");  
+//		        continue; 
+//		    }  
+//		    intersection.x = ((b.x - a.x) * (c.x - d.x) * (c.y - a.y) -   
+//		            c.x * (b.x - a.x) * (c.y - d.y) + a.x * (b.y - a.y) * (c.x - d.x)) /   
+//		            ((b.y - a.y) * (c.x - d.x) - (b.x - a.x) * (c.y - d.y));  
+//		    intersection.y = ((b.y - a.y) * (c.y - d.y) * (c.x - a.x) - c.y  
+//		            * (b.y - a.y) * (c.x - d.x) + a.y * (b.x - a.x) * (c.y - d.y))  
+//		            / ((b.x - a.x) * (c.y - d.y) - (b.y - a.y) * (c.x - d.x));  
+//		    if ((intersection.x - a.x) * (intersection.x - b.x) <= 0  
+//		            && (intersection.x - c.x) * (intersection.x - d.x) <= 0  
+//		            && (intersection.y - a.y) * (intersection.y - b.y) <= 0  
+//		            && (intersection.y - c.y) * (intersection.y - d.y) <= 0) {       
+////		        System.out.println("线段相交于点(" + intersection.x + "," + intersection.y + ")！");  
+//		        return intersection;
+//		    } else {  
+////		        System.out.println("线段相交于虚交点(" + intersection.x + "," + intersection.y + ")！");  
+//		        continue; // '相交但不在线段上  	
+//			}
+//		}
+//		return null;
+//	}
+	
+	public Vector<Point> SutherlandHodgman(Vector<Point> inPoly, Point clip1, Point clip2)
 	{
-		inPoly = this.pointlist;
-		clipBoundary = this.clipBoundary;
 		Vector<Point> outPoly = new Vector<Point>();
 		Point s, p, i;
 		s = inPoly.lastElement(); //start with the last point
 		for (int j = 0; j < inPoly.size(); ++j) {
 			p = inPoly.elementAt(j);
-			if (isInside(p, clipBoundary)) {
-				if (isInside(s, clipBoundary))
-					outPoly.add(p); //Case1
+			if (isInside(p, clip1, clip2)) {
+				if (isInside(s, clip1, clip2))
+						outPoly.add(p); //Case1
 				else {
-					i = intersect(s, p, clipBoundary);
-					outPoly.add(i); //Case 4
-					outPoly.add(p);
+					i = intersect(s, p, clip1, clip2);
+					if(i != null) {
+						outPoly.add(i); //Case 4
+						outPoly.add(p);
+					}
 				}
 			}
-			else if (isInside(s, clipBoundary)) {
-				i = intersect(s, p, clipBoundary);
-				outPoly.add(i); //Case 2
+			else if (isInside(s, clip1, clip2)) {
+				i = intersect(s, p, clip1, clip2);
+				if(i != null) {
+					outPoly.add(i); //Case 2
+				}
 			}
 			s = p;
 		}
 		return outPoly;
 	}
 	
-	public void clipedDraw(Vector<Point> outPoly) {
+	public void clipedDraw() {
+		Point q = this.clipBoundary.lastElement();
+		Vector<Point> outPoly = pointlist;
+		for(Point p : this.clipBoundary) {
+			outPoly = SutherlandHodgman(outPoly, q, p);
+			q = p;
+		}
 		Point s = outPoly.lastElement();
 		for(Point p : outPoly) {
-//			if(!pointlist.contains(p) && !pointlist.contains(s)) {}
-//			else
-				drawLine(Color.blue, s.x, s.y, p.x, p.y);
+			drawLine(Color.blue, s.x, s.y, p.x, p.y);
 			s = p;
 		}
 	}
@@ -352,7 +417,7 @@ public class Clipping extends JPanel{
 		while(!f.buckets.isEmpty() || f.activeedgetable!=null){
 			f.etToAet(y);
 			f.quickSort();
-			f.printAET();
+			f.printAET(); 
 			old = f.activeedgetable;
 			while(true) {
 				if(old.next==null) {
