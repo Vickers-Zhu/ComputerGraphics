@@ -9,11 +9,12 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.image.BufferedImage;
-
+import java.util.Stack;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -25,7 +26,7 @@ public class Clipping extends JPanel{
     protected BufferedImage canvas;
     protected Vector<Point> pointlist;
     protected Vector<Point> clipBoundary;
-
+    protected boolean getFlood = false;
     public Clipping(int width, int height) {
     	this.width = width;
     	this.height = height;
@@ -174,6 +175,12 @@ public class Clipping extends JPanel{
 	private class Linelistener extends MouseAdapter{
 		@Override
 		public void mousePressed(MouseEvent e) {
+			if(getFlood) {
+//				canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+				boundaryFill4(e.getPoint().x, e.getPoint().y);
+				repaint();
+				return;
+			}
 			if(!isBoundaryLine) {
 				pointlist.add(e.getPoint());
 				if(pointlist.size() > 1) drawLine(Color.black, pointlist.get(pointlist.size()-2).x, 
@@ -186,6 +193,7 @@ public class Clipping extends JPanel{
 						clipBoundary.elementAt(clipBoundary.size()-2).y, clipBoundary.lastElement().x, 
 						clipBoundary.lastElement().y);
 			}
+	
 		}
 	}
 	
@@ -232,6 +240,11 @@ public class Clipping extends JPanel{
 				break;
 			case KeyEvent.VK_F:
 				fillPoly(new Filling(pointlist));
+				break;
+			case KeyEvent.VK_L:
+				getFlood = !getFlood;
+				System.out.println("Flood" + getFlood);
+				break;
 			}
 		}
 	}
@@ -447,5 +460,56 @@ public class Clipping extends JPanel{
 			f.plusEach();
 			repaint();
 		}
+	}
+	
+	public void boundaryFill4(int x, int y)
+	{
+		System.out.println(checkValididy(x, y));
+		Stack<Point> st = new Stack<Point>();
+		Point p = null;
+		st.push(new Point(x, y));
+		while(!st.empty()) {
+			p = null;
+			p = st.pop();
+			System.out.println(st.empty());
+			this.canvas.setRGB(p.x, p.y, Color.pink.getRGB());
+			if(checkValididy(p.x+1, p.y)) {
+				st.push(new Point(p.x+1, p.y));
+				System.out.println(st.peek().x);
+				System.out.println("1");
+			}
+			if(checkValididy(p.x-1, p.y)) {
+				System.out.println("2");
+				st.push(new Point(p.x-1, p.y));
+			}
+			if(checkValididy(p.x, p.y+1)) {
+				st.push(new Point(p.x, p.y+1));
+				System.out.println("3");
+
+			}
+			if(checkValididy(p.x, p.y-1)) {
+				st.push(new Point(p.x, p.y-1));
+				System.out.println("4");
+			}
+		}
+	}
+	public boolean checkValididy(int x, int y) {
+//		GeneralPath p = new GeneralPath();
+//		Vector<Point>clipBoundary = new Vector<Point>();
+//		for(Point po : this.clipBoundary) {
+//			clipBoundary.add(po);
+//		}
+//        Point2D.Double first =  new Point2D.Double(clipBoundary.firstElement().getX(), clipBoundary.firstElement().getY());
+//        p.moveTo(first.x, first.y);
+//        clipBoundary.remove(0);
+//        for(Point po : clipBoundary) {
+//        	p.lineTo(new Point2D.Double(po.getX(), po.getY()).x, new Point2D.Double(po.getX(), po.getY()).y);
+//        }
+//        p.lineTo(first.x, first.y);
+//        return p.contains(new Point2D.Double(x, y));  
+
+		if(canvas.getRGB(x, y) == Color.red.getRGB()) 
+			return false;
+		else return true;
 	}
 }
