@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8ab2329-2b7c-49b1-8092-0b1ee8ac6902" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cube/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cube/Cube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cube/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cube/Projections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cube/Vector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Cube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/GraphicsPolygon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/GraphicsShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/RenderQueueItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Solid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphics/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3D_Scene.iml" beforeDir="false" afterPath="$PROJECT_DIR$/3D_Scene.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Cube.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GraphicsPolygon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GraphicsShape.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/RenderQueueItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Solid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Vector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Cube.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Projections.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Vector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,24 +18,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="2445">
+              <caret line="163" column="23" selection-start-line="163" selection-start-column="18" selection-end-line="163" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1258#1259#0" expanded="true" />
                 <element signature="e#1303#1304#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="e#795#796#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cube/Matrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1393">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -138,6 +128,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -202,12 +193,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558967155860</updated>
-      <workItem from="1558967158681" duration="163000" />
+      <workItem from="1558967158681" duration="948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163000" />
+    <option name="totallyTimeSpent" value="948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="945" extended-state="6" />
@@ -218,7 +209,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -228,7 +219,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32942554" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32942554" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -257,13 +248,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="2445">
+          <caret line="163" column="23" selection-start-line="163" selection-start-column="18" selection-end-line="163" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1258#1259#0" expanded="true" />
             <element signature="e#1303#1304#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1393">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
