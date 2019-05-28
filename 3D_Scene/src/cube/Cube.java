@@ -7,6 +7,7 @@ public class Cube {
     private static final int Y = 1;
     private static final int Z = 2;
 
+
     private Vector[] vertices;
 
     public Cube(Vector v, double side) {
@@ -30,6 +31,7 @@ public class Cube {
     }
 
     public GLine[] toLines(Vector c, Vector t, Vector e) {
+
         Matrix projection = Projections.perspective(toMatrix(), c, t, e);
 
         Vector[] p = projection.cols();

@@ -20,11 +20,11 @@ public class Application extends GraphicsProgram {
     private static final Vector e = new Vector(0, -300, 800);
 
     // v0 of two cubes
-    private static final Vector x = new Vector(-125, 0, 0);
-    private static final Vector y = new Vector(25, -50, 0);
+    private static final Vector x = new Vector(-100, 0, 100);
+    private static final Vector y = new Vector(100, 0, -100);
 
     // Two cubes
-    private static final Cube cubeX = new Cube(x, 100);
+    private static final Cube cubeX = new Cube(x, 200);
     private static final Cube cubeY = new Cube(y, 100);
 
     // Camera pan mode settings
@@ -43,10 +43,11 @@ public class Application extends GraphicsProgram {
     }
 
     public void run() {
-        while(true) {
-            cameraPanY();
-            rotateXZ();
-        }
+//        while(true) {
+//            cameraPanY();
+//            rotateXZ();
+//        }
+        normalDisplay();
     }
 
     private void normalDisplay() {

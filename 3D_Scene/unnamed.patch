@@ -1,0 +1,569 @@
+Index: 3D_Scene/src/cube/Matrix.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 3D_Scene/src/cube/Matrix.java	(revision a59f6eff0b97bbc480d09fe4694b3671cabb3e11)
++++ 3D_Scene/src/cube/Matrix.java	(date 1558977741000)
+@@ -142,5 +142,4 @@
+         }
+         return s + "\n";
+     }
+-
+ }
+Index: 3D_Scene/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 3D_Scene/.idea/workspace.xml	(revision a59f6eff0b97bbc480d09fe4694b3671cabb3e11)
++++ 3D_Scene/.idea/workspace.xml	(date 1558993645000)
+@@ -2,7 +2,11 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="b8ab2329-2b7c-49b1-8092-0b1ee8ac6902" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/3D_Scene/Main.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/3D_Scene/cube/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Scene/cube/Application.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/cube/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Application.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/cube/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Matrix.java" afterDir="false" />
+     </list>
+     <ignored path="$PROJECT_DIR$/out/" />
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+@@ -12,16 +16,15 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="DefaultGradleProjectSettings">
+-    <option name="testRunner" value="GRADLE" />
+-    <option name="delegatedBuild" value="true" />
++    <option name="isMigrated" value="true" />
+   </component>
+   <component name="FileEditorManager">
+     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+-      <file pinned="false" current-in-tab="false">
++      <file pinned="false" current-in-tab="true">
+         <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="2445">
+-              <caret line="163" column="23" selection-start-line="163" selection-start-column="18" selection-end-line="163" selection-end-column="23" />
++            <state relative-caret-position="211">
++              <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+               <folding>
+                 <element signature="imports" expanded="true" />
+                 <element signature="e#1258#1259#0" expanded="true" />
+@@ -34,8 +37,8 @@
+       <file pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="104">
+-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
++            <state relative-caret-position="165">
++              <caret line="11" column="37" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="37" />
+               <folding>
+                 <element signature="e#795#796#0" expanded="true" />
+                 <element signature="e#838#839#0" expanded="true" />
+@@ -47,29 +50,126 @@
+       <file pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/cube/Matrix.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="-1393">
++            <state relative-caret-position="-368">
++              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
++              <folding>
++                <element signature="e#148#149#0" expanded="true" />
++                <element signature="e#182#183#0" expanded="true" />
++                <element signature="e#252#253#0" expanded="true" />
++                <element signature="e#288#289#0" expanded="true" />
++                <element signature="e#643#644#0" expanded="true" />
++                <element signature="e#682#683#0" expanded="true" />
++                <element signature="e#717#718#0" expanded="true" />
++                <element signature="e#768#769#0" expanded="true" />
++                <element signature="e#804#805#0" expanded="true" />
++                <element signature="e#833#834#0" expanded="true" />
++                <element signature="e#869#870#0" expanded="true" />
++                <element signature="e#898#899#0" expanded="true" />
++                <element signature="e#937#938#0" expanded="true" />
++                <element signature="e#2176#2177#0" expanded="true" />
++                <element signature="e#2229#2230#0" expanded="true" />
++                <element signature="e#3030#3031#0" expanded="true" />
++                <element signature="e#3072#3073#0" expanded="true" />
++              </folding>
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/graphics/Vector.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="30">
+               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file pinned="false" current-in-tab="true">
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/graphics/Matrix.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="106">
++              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="120">
+-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
++            <state relative-caret-position="-338">
++              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/graphics/GraphicsPolygon.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="68">
++              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/cube/Vector.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="494">
++              <caret line="39" column="34" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="34" />
++              <folding>
++                <element signature="e#148#149#0" expanded="true" />
++                <element signature="e#182#183#0" expanded="true" />
++                <element signature="e#261#262#0" expanded="true" />
++                <element signature="e#301#302#0" expanded="true" />
++                <element signature="e#338#339#0" expanded="true" />
++                <element signature="e#369#370#0" expanded="true" />
++                <element signature="e#400#401#0" expanded="true" />
++                <element signature="e#438#439#0" expanded="true" />
++                <element signature="e#477#478#0" expanded="true" />
++                <element signature="e#518#519#0" expanded="true" />
++                <element signature="e#569#570#0" expanded="true" />
++                <element signature="e#611#612#0" expanded="true" />
++                <element signature="e#2001#2002#0" expanded="true" />
++                <element signature="e#2043#2044#0" expanded="true" />
++              </folding>
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/graphics/Edge.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="30">
++              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/graphics/Cube.java">
++          <provider selected="true" editor-type-id="text-editor">
++            <state relative-caret-position="75">
++              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+     </leaf>
+   </component>
++  <component name="FindInProjectRecents">
++    <findStrings>
++      <find>add</find>
++    </findStrings>
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+   </component>
+   <component name="IdeDocumentHistory">
+     <option name="CHANGED_PATHS">
+       <list>
++        <option value="$PROJECT_DIR$/src/cube/Vector.java" />
++        <option value="$PROJECT_DIR$/src/cube/Matrix.java" />
++        <option value="$PROJECT_DIR$/src/cube/Projections.java" />
+         <option value="$PROJECT_DIR$/src/cube/Application.java" />
+       </list>
+     </option>
+@@ -85,7 +185,6 @@
+       <foldersAlwaysOnTop value="true" />
+     </navigator>
+     <panes>
+-      <pane id="PackagesPane" />
+       <pane id="ProjectPane">
+         <subPane>
+           <expand>
+@@ -118,6 +217,7 @@
+           <select />
+         </subPane>
+       </pane>
++      <pane id="PackagesPane" />
+       <pane id="Scope" />
+     </panes>
+   </component>
+@@ -149,6 +249,19 @@
+     </option>
+   </component>
+   <component name="RunManager" selected="Application.Application">
++    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="graphics.Application" />
++      <module name="3D_Scene" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="graphics.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="cube.Application" />
+       <module name="3D_Scene" />
+@@ -175,10 +288,12 @@
+     <list>
+       <item itemvalue="Application.Main" />
+       <item itemvalue="Application.Application" />
++      <item itemvalue="Application.Application (1)" />
+     </list>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.Application" />
++        <item itemvalue="Application.Application (1)" />
+         <item itemvalue="Application.Main" />
+       </list>
+     </recent_temporary>
+@@ -193,93 +308,180 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1558967155860</updated>
+-      <workItem from="1558967158681" duration="948000" />
++      <workItem from="1558967158681" duration="1151000" />
++      <workItem from="1558969983259" duration="4303000" />
++      <workItem from="1558991902013" duration="1443000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TimeTrackingManager">
+-    <option name="totallyTimeSpent" value="948000" />
++    <option name="totallyTimeSpent" value="6897000" />
+   </component>
+   <component name="ToolWindowManager">
+     <frame x="0" y="23" width="1680" height="945" extended-state="6" />
+     <editor active="true" />
+     <layout>
+-      <window_info id="Image Layers" />
+-      <window_info id="Designer" />
+-      <window_info id="UI Designer" />
+-      <window_info id="Capture Tool" />
+-      <window_info id="Favorites" side_tool="true" />
+-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
++      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
+       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+-      <window_info anchor="bottom" id="Messages" />
+-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+-      <window_info anchor="bottom" id="Database Changes" />
+-      <window_info anchor="bottom" id="Version Control" />
+-      <window_info anchor="bottom" id="Terminal" />
+-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
++      <window_info id="Image Layers" order="2" />
++      <window_info id="Designer" order="3" />
++      <window_info id="UI Designer" order="4" />
++      <window_info id="Capture Tool" order="5" />
++      <window_info id="Favorites" order="6" side_tool="true" />
+       <window_info anchor="bottom" id="Message" order="0" />
+-      <window_info anchor="bottom" id="Find" order="1" />
+-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32942554" />
++      <window_info anchor="bottom" id="Find" order="1" weight="0.32942554" />
++      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32942554" />
+       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+       <window_info anchor="bottom" id="TODO" order="6" />
+-      <window_info anchor="right" id="Palette" />
+-      <window_info anchor="right" id="Theme Preview" />
+-      <window_info anchor="right" id="Maven" />
+-      <window_info anchor="right" id="Capture Analysis" />
+-      <window_info anchor="right" id="Palette&#9;" />
+-      <window_info anchor="right" id="Database" />
++      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
++      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32942554" />
++      <window_info anchor="bottom" id="Database Changes" order="9" />
++      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32942554" />
++      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
++      <window_info anchor="bottom" id="Messages" order="12" />
+       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
++      <window_info anchor="right" id="Palette" order="3" />
++      <window_info anchor="right" id="Database" order="4" />
++      <window_info anchor="right" id="Theme Preview" order="5" />
++      <window_info anchor="right" id="Maven" order="6" />
++      <window_info anchor="right" id="Capture Analysis" order="7" />
++      <window_info anchor="right" id="Palette&#9;" order="8" />
+     </layout>
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="1" />
+   </component>
+   <component name="editorHistoryManager">
+-    <entry file="file://$PROJECT_DIR$/src/Main.java">
++    <entry file="file://$PROJECT_DIR$/src/Main.java" />
++    <entry file="file://$PROJECT_DIR$/src/graphics/Application.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="-58">
++          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="jar://$PROJECT_DIR$/acm.jar!/acm/program/GraphicsProgram.class">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="300">
++          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/graphics/Vector.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="30">
++          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/graphics/Edge.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="30">
++          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/graphics/Cube.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="75">
++          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/graphics/GraphicsPolygon.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="60">
+-          <caret line="6" selection-start-line="6" selection-end-line="6" />
++        <state relative-caret-position="68">
++          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
++    <entry file="file://$PROJECT_DIR$/src/graphics/Matrix.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="106">
++          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/cube/Matrix.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="2445">
+-          <caret line="163" column="23" selection-start-line="163" selection-start-column="18" selection-end-line="163" selection-end-column="23" />
++        <state relative-caret-position="-368">
++          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+           <folding>
+-            <element signature="imports" expanded="true" />
+-            <element signature="e#1258#1259#0" expanded="true" />
+-            <element signature="e#1303#1304#0" expanded="true" />
++            <element signature="e#148#149#0" expanded="true" />
++            <element signature="e#182#183#0" expanded="true" />
++            <element signature="e#252#253#0" expanded="true" />
++            <element signature="e#288#289#0" expanded="true" />
++            <element signature="e#643#644#0" expanded="true" />
++            <element signature="e#682#683#0" expanded="true" />
++            <element signature="e#717#718#0" expanded="true" />
++            <element signature="e#768#769#0" expanded="true" />
++            <element signature="e#804#805#0" expanded="true" />
++            <element signature="e#833#834#0" expanded="true" />
++            <element signature="e#869#870#0" expanded="true" />
++            <element signature="e#898#899#0" expanded="true" />
++            <element signature="e#937#938#0" expanded="true" />
++            <element signature="e#2176#2177#0" expanded="true" />
++            <element signature="e#2229#2230#0" expanded="true" />
++            <element signature="e#3030#3031#0" expanded="true" />
++            <element signature="e#3072#3073#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
++    <entry file="file://$PROJECT_DIR$/src/cube/Vector.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="104">
+-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
++        <state relative-caret-position="494">
++          <caret line="39" column="34" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="34" />
+           <folding>
+-            <element signature="e#795#796#0" expanded="true" />
+-            <element signature="e#838#839#0" expanded="true" />
++            <element signature="e#148#149#0" expanded="true" />
++            <element signature="e#182#183#0" expanded="true" />
++            <element signature="e#261#262#0" expanded="true" />
++            <element signature="e#301#302#0" expanded="true" />
++            <element signature="e#338#339#0" expanded="true" />
++            <element signature="e#369#370#0" expanded="true" />
++            <element signature="e#400#401#0" expanded="true" />
++            <element signature="e#438#439#0" expanded="true" />
++            <element signature="e#477#478#0" expanded="true" />
++            <element signature="e#518#519#0" expanded="true" />
++            <element signature="e#569#570#0" expanded="true" />
++            <element signature="e#611#612#0" expanded="true" />
++            <element signature="e#2001#2002#0" expanded="true" />
++            <element signature="e#2043#2044#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/cube/Matrix.java">
++    <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="-338">
++          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="-1393">
+-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
++        <state relative-caret-position="165">
++          <caret line="11" column="37" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="37" />
++          <folding>
++            <element signature="e#795#796#0" expanded="true" />
++            <element signature="e#838#839#0" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
++    <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="120">
+-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
++        <state relative-caret-position="211">
++          <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
++          <folding>
++            <element signature="imports" expanded="true" />
++            <element signature="e#1258#1259#0" expanded="true" />
++            <element signature="e#1303#1304#0" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+Index: 3D_Scene/src/cube/Application.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 3D_Scene/src/cube/Application.java	(revision a59f6eff0b97bbc480d09fe4694b3671cabb3e11)
++++ 3D_Scene/src/cube/Application.java	(date 1558993645000)
+@@ -17,14 +17,14 @@
+     // Default viewing parameters
+     private static final Vector c = new Vector(0, 300, -800);
+     private static final Vector t = new Vector(0, 0, 0);
+-    private static final Vector e = new Vector(0, -300, 800);
++    private static final Vector e = new Vector(0, 300, 800);
+ 
+     // v0 of two cubes
+-    private static final Vector x = new Vector(-125, 0, 0);
+-    private static final Vector y = new Vector(25, -50, 0);
++    private static final Vector x = new Vector(0, 0, 100);
++    private static final Vector y = new Vector(0, 0, -100);
+ 
+     // Two cubes
+-    private static final Cube cubeX = new Cube(x, 100);
++    private static final Cube cubeX = new Cube(x, 200);
+     private static final Cube cubeY = new Cube(y, 100);
+ 
+     // Camera pan mode settings
+@@ -43,10 +43,11 @@
+     }
+ 
+     public void run() {
+-        while(true) {
+-            cameraPanY();
+-            rotateXZ();
+-        }
++//        while(true) {
++//            cameraPanY();
++//            rotateXZ();
++//        }
++        normalDisplay();
+     }
+ 
+     private void normalDisplay() {
+diff --git 3D_Scene/out/production/3D_Scene/Main.class 3D_Scene/out/production/3D_Scene/Main.class
+deleted file mode 100644
+index 35612934d93a46ae706548380caa946c82f0942b..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 3D_Scene/out/production/3D_Scene/cube/Application.class 3D_Scene/out/production/3D_Scene/cube/Application.class
+index 19c4d887c885ae6c9414a0999d62dfe0ad4a92a6..3320704879e3958aa608d25acd141c994e9047b9
+GIT binary patch
+literal 5265
+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
+
