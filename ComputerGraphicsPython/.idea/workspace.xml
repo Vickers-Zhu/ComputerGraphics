@@ -4,7 +4,21 @@
     <bookmark url="file://$PROJECT_DIR$/CG_Code.py" line="249" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b55a7b2a-5943-4e42-9f7b-7bed037a2fca" name="Default Changelist" comment="" />
+    <list default="true" id="b55a7b2a-5943-4e42-9f7b-7bed037a2fca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../3D_Scene/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3D_Scene/src/debug/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Cube.class" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Cube.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/out/production/3D_Scene/cube/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/src/cube/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/src/cube/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/src/cube/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/src/cube/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3D_Scene/src/cube/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../3D_Scene/src/cube/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GuiBeta1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GuiBeta1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CG_Code.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1692">
-              <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+            <state relative-caret-position="504">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -68,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/K_means.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1123">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="108">
+              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -117,6 +131,9 @@
       <replace />
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -141,23 +158,51 @@
     <option name="width" value="1680" />
     <option name="height" value="934" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="GuiBeta1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ComputerGraphicsPython" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/ComputerGraphics/ComputerGraphicsPython" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="GuiBeta1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ComputerGraphicsPython" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/ComputerGraphics/ComputerGraphicsPython" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="venv" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ComputerGraphicsPython" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/ComputerGraphics/ComputerGraphicsPython" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="venv" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ComputerGraphicsPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerGraphicsPython" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ComputerGraphicsPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerGraphicsPython" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ComputerGraphicsPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerGraphicsPython" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -166,6 +211,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -421,16 +467,18 @@
       <workItem from="1553797617979" duration="3356000" />
       <workItem from="1554048334708" duration="38000" />
       <workItem from="1554379610519" duration="186000" />
+      <workItem from="1559232701842" duration="639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115496000" />
+    <option name="totallyTimeSpent" value="116135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="934" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2838828" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2869353" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -451,7 +499,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967034" />
       <window_info anchor="right" id="Database" order="4" weight="0.32967034" />
-      <window_info anchor="right" x="0" y="0" width="370" height="733" id="Documentation" order="5" side_tool="true" weight="0.32967034" />
+      <window_info anchor="right" x="0" y="0" width="370" height="733" id="Documentation" order="5" side_tool="true" visible="true" weight="0.32967034" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,27 +530,10 @@
     <entry file="file://$PROJECT_DIR$/AfterProcessed.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1854">
-          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CG_Input.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CG_Code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1692">
-          <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -525,10 +556,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/K_means.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1123">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="108">
+          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1854">
+          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CG_Code.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

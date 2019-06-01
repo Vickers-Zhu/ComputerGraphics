@@ -13,6 +13,9 @@ public class Vector {
     public Vector(double... elements) {
         this.elements = elements;
     }
+    public Vector(){
+        elements = new double[0];
+    }
 
     public double[] getElements() {
         return elements;

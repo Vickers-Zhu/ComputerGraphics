@@ -43,11 +43,10 @@ public class Application extends GraphicsProgram {
     }
 
     public void run() {
-//        while(true) {
+        while(true) {
 //            cameraPanY();
-//            rotateXZ();
-//        }
-        normalDisplay();
+            rotateXZ();
+        }
     }
 
     private void normalDisplay() {
