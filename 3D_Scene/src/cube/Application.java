@@ -26,6 +26,8 @@ public class Application extends GraphicsProgram {
     // Two cubes
     private static final Cube cubeX = new Cube(x, 200);
     private static final Cube cubeY = new Cube(y, 100);
+    private static final Cylinder cylinderX = new Cylinder(y, 50, 200, 30);
+    private static final Cone coneY = new Cone(x, 100, 400, 15);
 
     // Camera pan mode settings
     private static final int CAMERA_PAN = 300;
@@ -43,17 +45,21 @@ public class Application extends GraphicsProgram {
     }
 
     public void run() {
-        while(true) {
-//            cameraPanY();
-            rotateXZ();
-        }
+//        while(true) {
+////            cameraPanY();
+//            rotateXZ();
+//        }
+        normalDisplay();
     }
 
     private void normalDisplay() {
         removeAll();
         drawCube(cubeX, c, t, e);
-        drawCube(cubeY, c, t, e);
+//        drawCube(cubeY, c, t, e);
+        drawCylinder(cylinderX, c, t, e);
+        drawCone(coneY, c, t, e);
         sleep();
+
     }
 
     private void cameraPanX() {
@@ -161,6 +167,16 @@ public class Application extends GraphicsProgram {
 
     private void drawCube(Cube cube, Vector c, Vector t, Vector e) {
         GLine[] lines = cube.toLines(c, t, e);
+        drawLines(lines);
+    }
+
+    private void drawCylinder(Cylinder cylinder, Vector c, Vector t, Vector e) {
+        GLine[] lines = cylinder.toLines(c, t, e);
+        drawLines(lines);
+    }
+
+    private void drawCone(Cone cone, Vector c, Vector t, Vector e){
+        GLine[] lines = cone.toLines(c, t, e);
         drawLines(lines);
     }
 

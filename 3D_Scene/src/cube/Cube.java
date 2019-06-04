@@ -1,13 +1,7 @@
 package cube;
 import acm.graphics.GLine;
 
-public class Cube {
-
-    private static final int X = 0;
-    private static final int Y = 1;
-    private static final int Z = 2;
-
-
+public class Cube extends Shape{
     private Vector[] vertices;
 
     public Cube(Vector v, double side) {
