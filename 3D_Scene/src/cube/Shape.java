@@ -25,6 +25,15 @@ public class Shape {
         return b;
     }
 
+    public static Matrix[] implement(Matrix[] vertrices, Matrix... arr){
+        Matrix[] b = new Matrix[vertrices.length + arr.length];
+        System.arraycopy(vertrices, 0, b, 0, vertrices.length);
+        for(int i = 0; i < arr.length; i++) {
+            b[i + vertrices.length] = arr[i];
+        }
+        return b;
+    }
+
     protected int meshCount(double angle){
         return (int) (360 / angle);
     }

@@ -33,8 +33,6 @@ public class Cone extends Shape{
             vertices = implement(vertices, new Vector(v.get(X) + radius*Math.cos(Math.toRadians(i*angle)),
                     v.get(Y) + radius*Math.sin(Math.toRadians(i*angle)), v.get(Z) + height));
         }
-        System.out.println(vertices[0].get(Z));
-        System.out.println(vertices[2].get(Z));
     }
 
     public GLine[] toLines(Vector c, Vector t, Vector e) {

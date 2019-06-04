@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8ab2329-2b7c-49b1-8092-0b1ee8ac6902" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cube/Cone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cube/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Scene/cube/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Scene/cube/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Scene/cube/Cylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Scene/cube/Cylinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Cube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Cube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cube/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cube/Cone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Cone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cube/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cube/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cube/Sphere.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,17 +21,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cube/Cylinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
+            <state relative-caret-position="644">
               <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cube/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state relative-caret-position="379">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding>
                 <element signature="e#877#878#0" expanded="true" />
                 <element signature="e#919#920#0" expanded="true" />
@@ -45,15 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cube/Cone.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cube/Sphere.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-              <folding>
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -61,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-319">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="143">
+              <caret line="93" column="38" lean-forward="true" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,9 +154,10 @@
         <option value="$PROJECT_DIR$/src/debug/test.java" />
         <option value="$PROJECT_DIR$/src/cube/Cube.java" />
         <option value="$PROJECT_DIR$/src/cube/Cylinder.java" />
+        <option value="$PROJECT_DIR$/src/cube/Application.java" />
         <option value="$PROJECT_DIR$/src/cube/Shape.java" />
         <option value="$PROJECT_DIR$/src/cube/Cone.java" />
-        <option value="$PROJECT_DIR$/src/cube/Application.java" />
+        <option value="$PROJECT_DIR$/src/cube/Sphere.java" />
       </list>
     </option>
   </component>
@@ -330,7 +322,7 @@
       <workItem from="1559034592931" duration="7545000" />
       <workItem from="1559218153498" duration="1273000" />
       <workItem from="1559497751748" duration="261000" />
-      <workItem from="1559671897874" duration="8423000" />
+      <workItem from="1559671897874" duration="9281000" />
     </task>
     <task id="LOCAL-00001">
       <created>1558993652825</created>
@@ -343,7 +335,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32365000" />
+    <option name="totallyTimeSpent" value="33223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="945" extended-state="6" />
@@ -358,7 +350,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32942554" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32942554" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32942554" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976552" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -528,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cube/Projections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="801">
@@ -542,42 +527,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cube/Cylinder.java">
+    <entry file="file://$PROJECT_DIR$/src/cube/Cube.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cube/Cone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding>
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="310">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cube/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="143">
+          <caret line="93" column="38" lean-forward="true" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Cylinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cube/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state relative-caret-position="379">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
           <folding>
             <element signature="e#877#878#0" expanded="true" />
             <element signature="e#919#920#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Cone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cube/Sphere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
