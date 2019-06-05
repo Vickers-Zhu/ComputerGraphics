@@ -1,4 +1,4 @@
-package cube;
+package Scene;
 import acm.graphics.GLine;
 
 public class Cube extends Shape{

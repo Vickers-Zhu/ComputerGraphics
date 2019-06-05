@@ -1,8 +1,8 @@
 package debug;
-import cube.*;
+import Scene.*;
 
 public class test {
-    public cube.Vector[] vertices;
+    public Scene.Vector[] vertices;
 
 
     public void implement(Vector[] arr){
@@ -15,8 +15,8 @@ public class test {
 
     public static void main(String[] arg){
         test ts = new test();
-        ts.vertices = new cube.Vector[0];
-        cube.Vector[] a = new cube.Vector[]{
+        ts.vertices = new Scene.Vector[0];
+        Scene.Vector[] a = new Scene.Vector[]{
                 new Vector(0, 2),
                 new Vector(1, 2),
                 new Vector(2, 2)

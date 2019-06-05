@@ -1,4 +1,4 @@
-package cube;
+package Scene;
 
 public class Matrix {
 
