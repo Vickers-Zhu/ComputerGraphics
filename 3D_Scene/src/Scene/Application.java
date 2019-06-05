@@ -2,6 +2,8 @@ package Scene;
 
 import acm.graphics.GLine;
 import acm.program.GraphicsProgram;
+import com.google.gson.Gson;
+import java.io.*;
 
 public class Application extends GraphicsProgram {
 
@@ -42,7 +44,12 @@ public class Application extends GraphicsProgram {
 
     //start our Recurse objects
     public static void main(String[] args) {
-        new Application().start(args);
+//        new Application().start(args);
+//        Gson gson = new Gson();
+//        String str = gson.toJson(coneY);
+//        System.out.println(str);
+
+        loadFromFile();
     }
 
     public void run() {
@@ -51,6 +58,17 @@ public class Application extends GraphicsProgram {
 //            rotateXZ();
 //        }
         normalDisplay();
+    }
+
+    private static void loadFromFile(){
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("./src/Scene/Scene"));
+            String str;
+            while ((str = in.readLine()) != null) {
+                System.out.println(str);
+            }
+            System.out.println(str);
+        } catch (IOException e) { }
     }
 
     private void normalDisplay() {
