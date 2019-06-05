@@ -26,8 +26,9 @@ public class Application extends GraphicsProgram {
     // Two cubes
     private static final Cube cubeX = new Cube(x, 200);
     private static final Cube cubeY = new Cube(y, 100);
-    private static final Cylinder cylinderX = new Cylinder(y, 50, 200, 30);
-    private static final Cone coneY = new Cone(x, 100, 400, 15);
+    private static final Cylinder cylinderX = new Cylinder(y, 50, 200, 5);
+    private static final Cone coneY = new Cone(x, 100, 400, 5);
+    private static final Sphere sphereX = new Sphere(x, 100, 5, 5);
 
     // Camera pan mode settings
     private static final int CAMERA_PAN = 300;
@@ -54,10 +55,11 @@ public class Application extends GraphicsProgram {
 
     private void normalDisplay() {
         removeAll();
-        drawCube(cubeX, c, t, e);
-//        drawCube(cubeY, c, t, e);
-        drawCylinder(cylinderX, c, t, e);
-        drawCone(coneY, c, t, e);
+        draw(cubeX, c, t, e);
+        draw(cubeY, c, t, e);
+        draw(cylinderX, c, t, e);
+        draw(coneY, c, t, e);
+        draw(sphereX, c, t, e);
         sleep();
 
     }
@@ -66,22 +68,22 @@ public class Application extends GraphicsProgram {
         for (int i=0; i<CAMERA_PAN; i++) {
             Vector _c = new Vector(c.get(X)+i, c.get(Y), c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
         for (int i=CAMERA_PAN; i>-CAMERA_PAN; i--) {
             Vector _c = new Vector(c.get(X)+i, c.get(Y), c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
         for (int i=-CAMERA_PAN; i<0; i++) {
             Vector _c = new Vector(c.get(X)+i, c.get(Y), c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
     }
@@ -90,22 +92,22 @@ public class Application extends GraphicsProgram {
         for (int i=200; i<CAMERA_PAN; i++) {
             Vector _c = new Vector(c.get(X), c.get(Y)+i, c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
         for (int i=CAMERA_PAN; i>-CAMERA_PAN; i--) {
             Vector _c = new Vector(c.get(X), c.get(Y)+i, c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
         for (int i=-CAMERA_PAN; i<200; i++) {
             Vector _c = new Vector(c.get(X), c.get(Y)+i, c.get(Z));
             removeAll();
-            drawCube(cubeX, _c, t, e);
-            drawCube(cubeY, _c, t, e);
+            draw(cubeX, _c, t, e);
+            draw(cubeY, _c, t, e);
             sleep();
         }
     }
@@ -115,22 +117,22 @@ public class Application extends GraphicsProgram {
         for (int i=0; i<CAMERA_PAN; i++) {
             Vector _c = new Vector(c.get(X)+r, c.get(Y), i);
             removeAll();
-            drawCube(cubeX, _c, _t, e);
-            drawCube(cubeY, _c, _t, e);
+            draw(cubeX, _c, _t, e);
+            draw(cubeY, _c, _t, e);
             sleep();
         }
         for (int i=CAMERA_PAN; i>-CAMERA_PAN; i--) {
             Vector _c = new Vector(c.get(X)+r, c.get(Y), i);
             removeAll();
-            drawCube(cubeX, _c, _t, e);
-            drawCube(cubeY, _c, _t, e);
+            draw(cubeX, _c, _t, e);
+            draw(cubeY, _c, _t, e);
             sleep();
         }
         for (int i=-CAMERA_PAN; i<0; i++) {
             Vector _c = new Vector(c.get(X)+r, c.get(Y), i);
             removeAll();
-            drawCube(cubeX, _c, _t, e);
-            drawCube(cubeY, _c, _t, e);
+            draw(cubeX, _c, _t, e);
+            draw(cubeY, _c, _t, e);
             sleep();
         }
     }
@@ -144,8 +146,8 @@ public class Application extends GraphicsProgram {
             );
             Vector _t = new Vector(0, -Math.toRadians(i), 0);
             removeAll();
-            drawCube(cubeX, _c, _t, e);
-            drawCube(cubeY, _c, _t, e);
+            draw(cubeX, _c, _t, e);
+            draw(cubeY, _c, _t, e);
             sleep();
         }
     }
@@ -159,24 +161,29 @@ public class Application extends GraphicsProgram {
             );
             Vector _t = new Vector(Math.toRadians(i), 0, 0);
             removeAll();
-            drawCube(cubeX, _c, _t, e);
-            drawCube(cubeY, _c, _t, e);
+            draw(cubeX, _c, _t, e);
+            draw(cubeY, _c, _t, e);
             sleep();
         }
     }
 
-    private void drawCube(Cube cube, Vector c, Vector t, Vector e) {
+    private void draw(Cube cube, Vector c, Vector t, Vector e) {
         GLine[] lines = cube.toLines(c, t, e);
         drawLines(lines);
     }
 
-    private void drawCylinder(Cylinder cylinder, Vector c, Vector t, Vector e) {
+    private void draw(Cylinder cylinder, Vector c, Vector t, Vector e) {
         GLine[] lines = cylinder.toLines(c, t, e);
         drawLines(lines);
     }
 
-    private void drawCone(Cone cone, Vector c, Vector t, Vector e){
+    private void draw(Cone cone, Vector c, Vector t, Vector e){
         GLine[] lines = cone.toLines(c, t, e);
+        drawLines(lines);
+    }
+
+    private void draw(Sphere sphere, Vector c, Vector t, Vector e){
+        GLine[] lines = sphere.toLines(c, t, e);
         drawLines(lines);
     }
 
