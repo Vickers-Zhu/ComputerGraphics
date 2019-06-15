@@ -4,6 +4,7 @@ import acm.graphics.GLine;
 import acm.program.GraphicsProgram;
 import com.google.gson.Gson;
 import java.io.*;
+import javax.script.*;
 
 public class Application extends GraphicsProgram {
 
@@ -44,12 +45,7 @@ public class Application extends GraphicsProgram {
 
     //start our Recurse objects
     public static void main(String[] args) {
-//        new Application().start(args);
-//        Gson gson = new Gson();
-//        String str = gson.toJson(coneY);
-//        System.out.println(str);
-
-        loadFromFile();
+        new Application().start(args);
     }
 
     public void run() {
@@ -57,17 +53,23 @@ public class Application extends GraphicsProgram {
 ////            cameraPanY();
 //            rotateXZ();
 //        }
-        normalDisplay();
+        loadFromFile();
+//        normalDisplay();
     }
 
-    private static void loadFromFile(){
+    private void loadFromFile(){
+        Gson gson = new Gson();
+        JsonObject jb;
         try {
             BufferedReader in = new BufferedReader(new FileReader("./src/Scene/Scene"));
             String str;
             while ((str = in.readLine()) != null) {
-                System.out.println(str);
+                jb = gson.fromJson(str, JsonObject.class);
+                if(jb.name.equals("cube")) draw(new Cube(new Vector(jb.x, jb.y, jb.z), jb.radius), c, t, e);
+                if(jb.name.equals("cylinder")) draw(new Cylinder(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.height, jb.angle), c, t, e);
+                if(jb.name.equals("cone")) draw(new Cone(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.height, jb.angle), c, t, e);
+                if(jb.name.equals("sphere")) draw(new Sphere(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.angle, jb.angleS), c, t, e);
             }
-            System.out.println(str);
         } catch (IOException e) { }
     }
 
@@ -79,7 +81,6 @@ public class Application extends GraphicsProgram {
         draw(coneY, c, t, e);
         draw(sphereX, c, t, e);
         sleep();
-
     }
 
     private void cameraPanX() {
@@ -230,5 +231,4 @@ public class Application extends GraphicsProgram {
             e1.printStackTrace();
         }
     }
-
 }

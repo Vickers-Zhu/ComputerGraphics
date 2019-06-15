@@ -18,6 +18,13 @@ public class Cube extends Shape{
                 new Vector(x0+side, y0+side, z0+side),
                 new Vector(x0, y0+side, z0+side)
         };
+
+        Vector[][] rot = new Vector[1][0];
+        rot[0] = implement(rot[0], vertices);
+        System.out.println(rot[0][0].get(X));
+        rot = rotate(rot, v, new Quaternion(Math.cos(Math.toRadians(30)), Math.sin(Math.toRadians(30))*0.0,
+                Math.sin(Math.toRadians(30))*1.0, Math.sin(Math.toRadians(30))*0.0));
+        vertices = rot[0];
     }
 
     public Matrix toMatrix() {

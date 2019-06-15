@@ -1,1 +1,4 @@
-{"name": "cube", "x": "0", "y": "0", "z": "0", "radius": "100"}
+{"name": "cube", "x": "-100", "y": "50", "z": "0", "radius": "200"}
+{"name": "sphere", "x": "-300", "y": "50", "z": "-150", "radius": "200", "angle": "15", "angleS": "10"}
+{"name": "cone", "x": "-100", "y": "-300", "z": "300","radius": "200", "height": "500", "angle": "20"}
+{"name": "cylinder", "x": "200", "y": "100", "z": "-300", "radius": "150", "height": "400", "angle": "5"}
