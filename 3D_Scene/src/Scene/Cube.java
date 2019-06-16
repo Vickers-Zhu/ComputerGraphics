@@ -4,7 +4,7 @@ import acm.graphics.GLine;
 public class Cube extends Shape{
     private Vector[] vertices;
 
-    public Cube(Vector v, double side) {
+    public Cube(Vector v, Vector oura, double side) {
         double x0 = v.get(X);
         double y0 = v.get(Y);
         double z0 = v.get(Z);
@@ -21,9 +21,7 @@ public class Cube extends Shape{
 
         Vector[][] rot = new Vector[1][0];
         rot[0] = implement(rot[0], vertices);
-        System.out.println(rot[0][0].get(X));
-        rot = rotate(rot, v, new Quaternion(Math.cos(Math.toRadians(30)), Math.sin(Math.toRadians(30))*0.0,
-                Math.sin(Math.toRadians(30))*1.0, Math.sin(Math.toRadians(30))*0.0));
+        rot = rotate(rot, v, ouraQuaternion(oura.get(X), oura.get(Y), oura.get(Z)));
         vertices = rot[0];
     }
 

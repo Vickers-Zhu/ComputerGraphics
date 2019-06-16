@@ -11,7 +11,7 @@ public class Cylinder extends Shape{
     private Vector[] verticesBottom;
     private Vector[] verticesTop;
 
-    public Cylinder(Vector v, double radius, double height, double angle) {
+    public Cylinder(Vector v, Vector oura, double radius, double height, double angle) {
         double x0 = v.get(X);
         double y0 = v.get(Y);
         double z0 = v.get(Z);
@@ -21,6 +21,12 @@ public class Cylinder extends Shape{
         verticesBottom = new Vector[0];
         verticesTop = new Vector[0];
         initPoints(v);
+        Vector[][] rot = new Vector[2][0];
+        rot[0] = implement(rot[0], verticesBottom);
+        rot[1] = implement(rot[1], verticesTop);
+        rot = rotate(rot, v, ouraQuaternion(oura.get(X), oura.get(Y), oura.get(Z)));
+        verticesBottom = rot[0];
+        verticesTop = rot[1];
     }
 
     public Matrix[] toMatrix() {

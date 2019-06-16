@@ -43,6 +43,18 @@ public class Shape {
         return (int) (360 / angle);
     }
 
+    public Quaternion ouraQuaternion(double pitch, double yaw, double roll){
+        double x = Math.sin(Math.toRadians(yaw/2))*Math.sin(Math.toRadians(roll/2))*Math.cos(Math.toRadians(pitch/2))
+                + Math.cos(Math.toRadians(yaw/2))*Math.cos(Math.toRadians(roll/2))*Math.sin(Math.toRadians(pitch/2));
+        double y = Math.sin(Math.toRadians(yaw/2))*Math.cos(Math.toRadians(roll/2))*Math.cos(Math.toRadians(pitch/2))
+                + Math.cos(Math.toRadians(yaw/2))*Math.sin(Math.toRadians(roll/2))*Math.sin(Math.toRadians(pitch/2));
+        double z = Math.cos(Math.toRadians(yaw/2))*Math.sin(Math.toRadians(roll/2))*Math.cos(Math.toRadians(pitch/2))
+                - Math.sin(Math.toRadians(yaw/2))*Math.cos(Math.toRadians(roll/2))*Math.sin(Math.toRadians(pitch/2));
+        double w = Math.cos(Math.toRadians(yaw/2))*Math.cos(Math.toRadians(roll/2))*Math.cos(Math.toRadians(pitch/2))
+                - Math.sin(Math.toRadians(yaw/2))*Math.sin(Math.toRadians(roll/2))*Math.sin(Math.toRadians(pitch/2));
+        return new Quaternion(w, x, y, z);
+    }
+
     public Vector[][] rotate(Vector[][] origin, Vector zeros, Quaternion quaternion){
         if(quaternion.norm() != 1) return null;
         for(int r = 0; r < origin.length; r++){

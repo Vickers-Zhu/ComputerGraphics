@@ -9,4 +9,7 @@ public class JsonObject {
     public double angleS;
     public double radius;
     public double height;
+    public double pitch;
+    public double yaw;
+    public double roll;
 }

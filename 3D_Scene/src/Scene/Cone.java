@@ -10,7 +10,7 @@ public class Cone extends Shape{
 
     private Vector[] vertices;
 
-    public Cone(Vector v, double radius, double height, double angle){
+    public Cone(Vector v, Vector oura, double radius, double height, double angle){
         double x0 = v.get(X);
         double y0 = v.get(Y);
         double z0 = v.get(Z);
@@ -21,6 +21,10 @@ public class Cone extends Shape{
                 new Vector(x0, y0, z0)
         };
         initPoints(v);
+        Vector[][] rot = new Vector[1][0];
+        rot[0] = implement(rot[0], vertices);
+        rot = rotate(rot, v, ouraQuaternion(oura.get(X), oura.get(Y), oura.get(Z)));
+        vertices = rot[0];
     }
 
     private Matrix toMatrix(){

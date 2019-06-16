@@ -27,11 +27,13 @@ public class Application extends GraphicsProgram {
     private static final Vector y = new Vector(100, 0, -100);
 
     // Two cubes
-    private static final Cube cubeX = new Cube(x, 200);
-    private static final Cube cubeY = new Cube(y, 100);
-    private static final Cylinder cylinderX = new Cylinder(y, 50, 200, 5);
-    private static final Cone coneY = new Cone(x, 100, 400, 5);
-    private static final Sphere sphereX = new Sphere(x, 100, 5, 5);
+    private static final Cube cubeX = new Cube(x, new Vector(0, 0, 0), 200);
+    private static final Cube cubeY = new Cube(y, new Vector(0, 0, 0), 100);
+    private java.util.Vector<Cube> cubes = new java.util.Vector<>();
+    private java.util.Vector<Cone> cones = new java.util.Vector<>();
+    private java.util.Vector<Cylinder> cylinders = new java.util.Vector<>();
+    private java.util.Vector<Sphere> spheres = new java.util.Vector<>();
+
 
     // Camera pan mode settings
     private static final int CAMERA_PAN = 300;
@@ -49,11 +51,12 @@ public class Application extends GraphicsProgram {
     }
 
     public void run() {
-//        while(true) {
-////            cameraPanY();
-//            rotateXZ();
-//        }
         loadFromFile();
+        while(true) {
+//            cameraPanY();
+            rotateXZ();
+//            rotateYZ();
+        }
 //        normalDisplay();
     }
 
@@ -65,10 +68,22 @@ public class Application extends GraphicsProgram {
             String str;
             while ((str = in.readLine()) != null) {
                 jb = gson.fromJson(str, JsonObject.class);
-                if(jb.name.equals("cube")) draw(new Cube(new Vector(jb.x, jb.y, jb.z), jb.radius), c, t, e);
-                if(jb.name.equals("cylinder")) draw(new Cylinder(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.height, jb.angle), c, t, e);
-                if(jb.name.equals("cone")) draw(new Cone(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.height, jb.angle), c, t, e);
-                if(jb.name.equals("sphere")) draw(new Sphere(new Vector(jb.x, jb.y, jb.z), jb.radius, jb.angle, jb.angleS), c, t, e);
+                if(jb.name.equals("cube")){
+                    cubes.add(new Cube(new Vector(jb.x, jb.y, jb.z), new Vector(jb.pitch, jb.yaw, jb.roll), jb.radius));
+                    draw(cubes.lastElement(), c, t, e);
+                }
+                if(jb.name.equals("cylinder")) {
+                    cylinders.add(new Cylinder(new Vector(jb.x, jb.y, jb.z), new Vector(jb.pitch, jb.yaw, jb.roll), jb.radius, jb.height, jb.angle));
+                    draw(cylinders.lastElement(), c, t, e);
+                }
+                if(jb.name.equals("cone")){
+                    cones.add(new Cone(new Vector(jb.x, jb.y, jb.z), new Vector(jb.pitch, jb.yaw, jb.roll), jb.radius, jb.height, jb.angle));
+                    draw(cones.lastElement(), c, t, e);
+                }
+                if(jb.name.equals("sphere")){
+                    spheres.add(new Sphere(new Vector(jb.x, jb.y, jb.z), new Vector(jb.pitch, jb.yaw, jb.roll), jb.radius, jb.angle, jb.angleS));
+                    draw(spheres.lastElement(), c, t, e);
+                }
             }
         } catch (IOException e) { }
     }
@@ -77,9 +92,6 @@ public class Application extends GraphicsProgram {
         removeAll();
         draw(cubeX, c, t, e);
         draw(cubeY, c, t, e);
-        draw(cylinderX, c, t, e);
-        draw(coneY, c, t, e);
-        draw(sphereX, c, t, e);
         sleep();
     }
 
@@ -165,8 +177,13 @@ public class Application extends GraphicsProgram {
             );
             Vector _t = new Vector(0, -Math.toRadians(i), 0);
             removeAll();
-            draw(cubeX, _c, _t, e);
-            draw(cubeY, _c, _t, e);
+//            draw(cubeX, _c, _t, e);
+//            draw(cubeY, _c, _t, e);
+            if(!cubes.isEmpty()) cubes.forEach(cube -> draw(cube, _c, _t, e));
+            if(!cylinders.isEmpty()) cylinders.forEach(cylinder -> draw(cylinder, _c, _t, e));
+            if(!cones.isEmpty()) cones.forEach(cone -> draw(cone, _c, _t, e));
+            if(!spheres.isEmpty()) spheres.forEach(sphere -> draw(sphere, _c, _t, e));
+
             sleep();
         }
     }
@@ -180,8 +197,10 @@ public class Application extends GraphicsProgram {
             );
             Vector _t = new Vector(Math.toRadians(i), 0, 0);
             removeAll();
-            draw(cubeX, _c, _t, e);
-            draw(cubeY, _c, _t, e);
+            if(!cubes.isEmpty()) cubes.forEach(cube -> draw(cube, _c, _t, e));
+            if(!cylinders.isEmpty()) cylinders.forEach(cylinder -> draw(cylinder, _c, _t, e));
+            if(!cones.isEmpty()) cones.forEach(cone -> draw(cone, _c, _t, e));
+            if(!spheres.isEmpty()) spheres.forEach(sphere -> draw(sphere, _c, _t, e));
             sleep();
         }
     }

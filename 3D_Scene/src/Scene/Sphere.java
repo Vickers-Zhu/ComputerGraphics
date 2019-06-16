@@ -9,13 +9,21 @@ public class Sphere extends Shape{
 
     private Vector[][] vetrices;
 
-    public Sphere(Vector v, double radius, double angleD, double angleS){
+    public Sphere(Vector v, Vector oura, double radius, double angleD, double angleS){
         this.angleD = angleD;
         this.angleS = angleS;
         this.radius = radius;
         int meshcount = meshCount(angleD);
         vetrices = new Vector[meshcount][0];
         initPoints(v);
+        Vector[][] rot = new Vector[meshcount][0];
+        for(int i = 0; i < meshcount; i++){
+            rot[i] = implement(rot[i], vetrices[i]);
+        }
+        rot = rotate(rot, v, ouraQuaternion(oura.get(X), oura.get(Y), oura.get(Z)));
+        for(int i = 0; i < meshcount; i++){
+            vetrices[i] = rot[i];
+        }
     }
 
     private void initPoints(Vector v){
